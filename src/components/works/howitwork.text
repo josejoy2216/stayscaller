@@ -1,0 +1,208 @@
+-----------------------------jsx----------------
+import React, { useEffect, useRef, useState } from "react";
+import "./HowItWorks.css"; // Custom styles
+import { useNavigate } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap for layout
+
+
+const HowItWorks = () => {
+  const navigate = useNavigate();
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 } // Trigger when 30% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const handleReadMore = () => {
+    navigate('/why-choose-us-detail');
+  };
+
+  return (
+    <section
+      id="works"
+      ref={sectionRef}
+      className={`py-5 bg-light fade-in-section ${isVisible ? "active" : ""}`}
+    >
+      <div className="container text-center">
+        {/* Section Title */}
+        <h2 className="section-title">HOW IT WORKS</h2>
+        <p className="section-subtitle">Learn more about how our website works</p>
+
+        {/* Steps Grid */}
+        <div className="row justify-content-center">
+          {[
+            {
+              icon: "flaticon-lightbulb-idea",
+              title: "Analyze",
+              description: "Assess market trends, guest behavior, and historical data to uncover new opportunities.",
+            },
+            {
+              icon: "flaticon-networking",
+              title: "Optimize",
+              description: "Implement dynamic pricing and varied revenue management strategies to optimize revenue.",
+            },
+            {
+              icon: "flaticon-location-on-road",
+              title: "Maximize",
+              description: "Continuously monitor performance, refine strategies, and outperform competitors to maximize growth.",
+            },
+          ].map((step, index) => (
+            <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div className=" how-it-works-card ">
+                <div className="icon-wrapper">
+                  <i className={`step-icon ${step.icon}`}></i>
+                </div>
+                <h3 className="step-title">{step.title}</h3>
+                <p className="step-description">{step.description}</p>
+                {/* <button className="btn btn-outline-dark read-more-btn" onClick={handleReadMore}>
+                  Read More
+                </button> */}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HowItWorks;
+
+------------------------------css-----------------------------
+
+/* Section Styling */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 30px;
+  }
+  
+  /* Card Styling */
+  .how-it-works-card {
+    background: #fcf2ea; /* Peach background */
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+    animation: fadeInUp 1s ease-in-out both;
+  }
+  
+  .how-it-works-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: #FFC4A3; /* Slightly darker peach on hover */
+  }
+  
+  /* Icon Styling */
+  .icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: #f1b454; /* Light peach */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .how-it-works-card:hover .icon-wrapper {
+    background: #dc3545; /* Red on hover */
+  }
+  
+  .step-icon {
+    font-size: 2rem;
+    color: #333; /* Default is darker color for contrast */
+  }
+  
+  .how-it-works-card:hover .step-icon {
+    color: white; /* White on hover */
+  }
+  
+  /* Button Styling */
+  .read-more-btn {
+    margin-top: 15px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+    background: white;
+    color: #333;
+    border: 1px solid #333;
+  }
+  
+  .read-more-btn:hover {
+    background: #dc3545; /* Red background on hover */
+    color: white;
+    border-color: #dc3545;
+  }
+  
+  /* Responsive Fixes */
+  @media (max-width: 768px) {
+    .how-it-works-card {
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+  
+    .section-title {
+      font-size: 1.8rem;
+    }
+  
+    .section-subtitle {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+  
+    .icon-wrapper {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .step-icon {
+      font-size: 1.8rem;
+    }
+  
+    .read-more-btn {
+      padding: 8px 15px;
+      font-size: 12px;
+    }
+  }
+  
+  /* Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

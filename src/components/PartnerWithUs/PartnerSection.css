@@ -1,0 +1,79 @@
+.partner-section {
+    /* background: linear-gradient(to right, #ebe9e6, #c3bdb4); */
+    background: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 30px;
+  }
+  
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px; /* Increased spacing */
+    padding: 0 20px; /* Adds padding for better layout */
+  }
+  
+  .icon-box {
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    width: 120px; /* Slightly increased size */
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  .icon-circle {
+    width: 80px;  /* Adjust circle size */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d1b1bbb; /* Change to desired color */
+    border-radius: 50%;
+  }
+  
+  .icon-circle img {
+    width: 50px; /* Adjust icon size inside circle */
+    height: auto;
+  }
+  
+  
+  .icon-box:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .icon-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px; /* Reduce gap for smaller screens */
+    }
+  
+    .icon-box {
+      width: 120px; /* Slightly smaller for mobile */
+      height: 120px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .title {
+      font-size: 20px; /* Smaller text for small screens */
+    }
+  
+    .icon-box {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  
