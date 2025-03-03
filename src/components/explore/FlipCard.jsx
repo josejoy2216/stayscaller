@@ -4,41 +4,40 @@ import "./FlipCard.css";
 const FlipCard = () => {
   const services = [
     {
-      title: "Online Reputation Management",
+      title: "Revenue Management",
       description:
-        "Streamline your hotel’s revenue with professional reputation management...",
+        "Drive sustainable growth and maximize revenue with intelligent, analytics-backed strategies tailored to your property.",
       icon: "✔️",
+      button: "/service#revenue-management",
     },
     {
-      title: "Global Distribution System",
+      title: "Social Media Marketing",
       description:
-        "Reinforce your hotel’s digital foundation with GDS connectivity...",
+        "Maximize your hotel’s reach with platform-specific strategies designed for Instagram, LinkedIn, Facebook, and more",
       icon: "🌍",
+      button: "/service#social-media-marketing",
     },
     {
-      title: "Audit & Training",
+      title: "Reputation Management",
       description:
-        "Amplify booking with real-time availability updates and seamless connectivity...",
+        "Take control of your hotel’s online presence with our comprehensive reputation management services.",
       icon: "♟️",
+      button: "/service#reputation-management",
     },
     {
-      title: "Website Development",
+      title: "PPC (Pay Per Click)",
       description:
-        "Enhance your hotel’s online presence with expert website development services...",
+        "Showcase your hotel’s official website and real-time rates directly in Google search results, appearing alongside major OTAs.",
       icon: "🌐",
+      button: "/service#ppc",
     },
     {
-      title: "Digital Marketing",
+      title: "Content & Photography",
       description:
-        "Boost bookings and brand visibility with digital marketing for hotels...",
+        "At Stay Scaler, we harness the power of engaging content and stunning photography to elevate your hotel’s online presence and drive revenue",
       icon: "📢",
+      button: "/service#content-and-photography",
     },
-    // {
-    //   title: "SEO Optimization",
-    //   description:
-    //     "Improve search rankings and drive organic traffic with SEO services...",
-    //   icon: "🔍",
-    // },
   ];
 
   return (
@@ -48,14 +47,17 @@ const FlipCard = () => {
           <div className="flip-card-inner">
             {/* Front Side */}
             <div className="flip-card-front">
-            <div className="icon">{service.icon}</div>
+              <div className="icon">{service.icon}</div>
               <h3>{service.title}</h3>
             </div>
             {/* Back Side */}
             <div className="flip-card-back">
               <div className="icon">{service.icon}</div>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
+              <h3 className="title">{service.title}</h3>
+              <p className="description">{service.description}</p>
+              <a href={`${service.button}`}>
+                <button className="visit-button">Know More</button>
+              </a>
             </div>
           </div>
         </div>

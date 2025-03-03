@@ -58,7 +58,7 @@ const Navbar = () => {
               About <FaAngleDown />
             </a>
             <div className={`dropdown-content ${openDropdown === "about" ? "show" : ""}`}>
-              <a href="##about">About Stay Scaler</a>
+              <a href="#about">About Stay Scaler</a>
               <a href="#what-we-do">What do we do?</a>
               <a href="#why-choose">Why Choose us?</a>
               {/* <a href="#contact">Contact <FaPhone /> </a> */}
@@ -73,10 +73,11 @@ const Navbar = () => {
                 Our Services <FaAngleDown />
             </a>
             <div className={`dropdown-content ${openDropdown === "services" ? "show" : ""}`}>
-              <a href="#Online-Revenue-Management">Online Revenue Management</a>
-              <a href="#Social-Media-Marketing">Social Media Marketing</a>
-              <a href="#PPC">PPC</a>
-              <a href="#content-photography">Content & Photography</a>
+              <a href="/service#revenue-management">Revenue Management</a>
+              <a href="/service#social-media-marketing">Social Media Marketing</a>
+              <a href="/service#reputation-management">Reputation Management</a>
+              <a href="/service#ppc">PPC</a>
+              <a href="/service#content-and-photography">Content & Photography</a>
             </div>
           </div>
 

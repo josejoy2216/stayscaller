@@ -1,12 +1,15 @@
-// WhyChooseUs.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./WhyChooseUs.css";
 import partner from "../assets/img/1.jpg";
 
 const WhyChooseUs = () => {
+  const location = useLocation();
+  const [selectedItem, setSelectedItem] = useState(null);
+
   const menuItems = [
     {
-      id: 1,
+      id: "revenue-management",
       title: "Revenue Management",
       content: (
         <div className="content-container">
@@ -60,7 +63,7 @@ const WhyChooseUs = () => {
       ),
     },
     {
-      id: 2,
+      id: "social-media-marketing",
       title: "Social Media Marketing",
       content: (
         <div className="content-container">
@@ -100,7 +103,7 @@ const WhyChooseUs = () => {
       ),
     },
     {
-      id: 3,
+      id: "reputation-management",
       title: "Reputation Management",
       content: (
         <div className="content-container">
@@ -139,7 +142,7 @@ const WhyChooseUs = () => {
       ),
     },
     {
-      id: 4,
+      id: "ppc",
       title: "PPC (Pay Per Click)",
       content: (
         <div className="content-container">
@@ -179,7 +182,7 @@ const WhyChooseUs = () => {
       ),
     },
     {
-      id: 5,
+      id: "content-and-photography",
       title: "Content & Photography",
       content: (
         <div className="content-container">
@@ -219,35 +222,40 @@ const WhyChooseUs = () => {
     },
   ];
 
-  const [selectedItem, setSelectedItem] = useState(menuItems[0]);
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.replace("#", ""); // Remove #
+      const foundItem = menuItems.find((item) => item.id === sectionId);
+      if (foundItem) {
+        setSelectedItem(foundItem);
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      setSelectedItem(menuItems[0]); // Default to the first item
+    }
+  }, [location]);
 
   return (
-    <div className="why-choose-us-container">
-      <br />
-      <br />
+    <div className="why-choose-us-container mt-5">
       <div className="content-wrapper">
         <div className="split-layout">
           {/* Sidebar */}
           <div className="sidebar">
             {menuItems.map((item) => (
-              <button
+              <a
                 key={item.id}
+                href={`#${item.id}`}
+                className={`sidebar-button ${selectedItem?.id === item.id ? "active" : ""}`}
                 onClick={() => setSelectedItem(item)}
-                className={`sidebar-button ${
-                  selectedItem.id === item.id ? "active" : ""
-                }`}
               >
                 {item.title}
-              </button>
+              </a>
             ))}
           </div>
 
           {/* Main Content */}
           <div className="main-content">
-            <div className="content-container">
-              <h2 className="content-title">{selectedItem.title}</h2>
-              <div className="content-body">{selectedItem.content}</div>
-            </div>
+            {selectedItem?.content}
           </div>
         </div>
       </div>

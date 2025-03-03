@@ -62,4 +62,11 @@
     font-size: 40px;
     margin-bottom: 10px;
   }
+
+  .flip-card-back .title{
+    font-size: 24px;
+  }
   
+  .flip-card-back .description{
+    font-size: 12px;
+  }

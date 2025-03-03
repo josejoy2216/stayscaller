@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/why-choose-us-detail" element={<WhyChooseUsDetail />} />
+        <Route path="/service" element={<WhyChooseUsDetail />} />
         <Route path="/hotel-gap-analysis" element={<HotelGapAnalysisForm />} />
       </Routes>
     </Router>

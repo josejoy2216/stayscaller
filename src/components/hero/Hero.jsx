@@ -12,6 +12,25 @@ const ComponentName = () => {
                     <div className="hero-content">
                         {/* Left Section */}
                         <div>
+                            <img className="hero-image" src={heroGif} alt="Animated Illustration" />
+                           
+                            {/* Stats */}
+                            {/* <div className="stats">
+                                <div className="stat-item">
+                                    <p className="stat-number">2943</p>
+                                    <p className="stat-label">Cards Delivered</p>
+                                </div>
+                                <div className="stat-item">
+                                    <p className="stat-number">$1M+</p>
+                                    <p className="stat-label">Transactions Completed</p>
+                                </div>
+                            </div> */}
+                        </div>
+
+                        {/* Right Section - Illustration */}
+                        <div>
+                            
+
                             <h1 className="hero-title">
                                 Lead the Game. Grow with Us.
                             </h1>
@@ -28,23 +47,6 @@ const ComponentName = () => {
                                 <input type="email" placeholder="Enter email address" required className="email-input" />
                                 <button type="submit" className="btn-primary">Contact Us</button>
                             </form>
-
-                            {/* Stats */}
-                            {/* <div className="stats">
-                                <div className="stat-item">
-                                    <p className="stat-number">2943</p>
-                                    <p className="stat-label">Cards Delivered</p>
-                                </div>
-                                <div className="stat-item">
-                                    <p className="stat-number">$1M+</p>
-                                    <p className="stat-label">Transactions Completed</p>
-                                </div>
-                            </div> */}
-                        </div>
-
-                        {/* Right Section - Illustration */}
-                        <div>
-                        <img className="hero-image" src={heroGif} alt="Animated Illustration" />
                         </div>
                     </div>
                 </div>
