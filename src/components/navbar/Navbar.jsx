@@ -73,11 +73,12 @@ const Navbar = () => {
                 Our Services <FaAngleDown />
             </a>
             <div className={`dropdown-content ${openDropdown === "services" ? "show" : ""}`}>
-              <a href="/service#revenue-management">Revenue Management</a>
-              <a href="/service#social-media-marketing">Social Media Marketing</a>
-              <a href="/service#reputation-management">Reputation Management</a>
-              <a href="/service#ppc">PPC</a>
-              <a href="/service#content-and-photography">Content & Photography</a>
+            <Link to="/service#revenue-management">Revenue Management</Link>
+            <Link to="/service#social-media-marketing">Social Media Marketing</Link>
+            <Link to="/service#reputation-management">Reputation Management</Link>
+            <Link to="/service#ppc">PPC</Link>
+            <Link to="/service#content-and-photography">Content & Photography</Link>
+
             </div>
           </div>
 

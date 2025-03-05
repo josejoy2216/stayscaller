@@ -5,7 +5,7 @@ import HotelGapAnalysisForm from "./components/pages/hotelGapAnalysis";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/stayscaller/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/service" element={<WhyChooseUsDetail />} />

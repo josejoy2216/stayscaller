@@ -1,154 +1,122 @@
-/* General container styling */
+/* General Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 /* Hero Section */
 .hero-section {
-    padding: 50px 0; /* Reduced padding (was 80px) */
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.90;
-    padding: 0 16px;
-    height: 750px;
-    /* background: linear-gradient(-38deg, #28217f, #3e379e , #2b0463 , #2b0660 ); */
+    padding: 50px 0;
+    height: auto;
+    margin-top: 40px;
     background: white;
-    background-size: 300% 300%; /* Allows smooth movement */
-    animation: gradientAnimation 10s infinite alternate ease-in-out;
 }
 
-/* Gradient Animation */
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Default: Mobile Layout (Stacked) */
+/* Hero Content */
 .hero-content {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column by default */
-    gap: 30px; /* Reduced gap (was 40px) */
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 30px;
 }
 
-.hero-image {
-    max-width: 90%;
-    max-height: 600px;
-}
-
-/* Desktop & Tablet: Side-by-Side (50-50) */
 @media (min-width: 768px) {
     .hero-content {
-        grid-template-columns: 1fr 1fr; /* Side by side */
+        flex-direction: row;
         text-align: left;
     }
 }
 
-/* Hero Title */
-.hero-title {
-    font-size: 2.2rem; /* Slightly smaller */
-    font-weight: bold;
-    color: #000000;
-    margin-bottom: 10px; /* Reduced margin */
+/* Hero Image */
+.hero-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-@media (min-width: 1024px) {
-    .hero-title {
-        font-size: 2.5rem; /* Adjusted for large screens */
-    }
+.hero-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Right Section */
+.hero-right {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Hero Title */
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
 }
 
 /* Hero Description */
 .hero-description {
     font-size: 1.1rem;
-    color: #000000;
-    margin-top: 10px; /* Reduced margin */
+    color: #000;
+    margin-bottom: 20px;
 }
 
-/* Email Signup */
-.email-form {
+/* Buttons */
+.hero-buttons {
     display: flex;
     flex-direction: column;
+    gap: 15px;
     align-items: center;
-    gap: 8px; /* Reduced gap */
-    margin-top: 15px; /* Reduced margin */
+    justify-content: center;
+    margin-top: 20px;
 }
 
 @media (min-width: 768px) {
-    .email-form {
+    .hero-buttons {
         flex-direction: row;
         justify-content: flex-start;
     }
 }
 
-.email-input {
-    padding: 10px;
-    width: 100%;
-    max-width: 260px; /* Slightly smaller */
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-.btn-primary {
-    padding: 10px 18px; /* Slightly smaller */
-    font-size: 0.95rem;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    text-align: center;
-    transition: background 0.3s ease;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: #444;
-}
-
-/* Stats Section */
-.stats {
+/* Revenue Button */
+.revenue-btn {
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Reduced gap */
-    margin-top: 5px; /* Reduced margin */
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 1.8rem; /* Slightly smaller */
+    align-items: center;
+    gap: 10px;
+    background: #30b6c9;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
     font-weight: bold;
-    color: #1a1a1a;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
 }
 
-.stat-label {
-    font-size: 0.9rem; /* Slightly smaller */
-    color: #666;
+.revenue-btn:hover {
+    background: #168493;
+    transform: translateY(-3px);
 }
 
-/* Hero Image */
-.hero-image {
-    width: 100%;
-    max-width: 450px; /* Slightly smaller */
-    display: block;
-    margin: 0 auto;
+/* Analysis Button */
+.analysis-btn {
+    background: #942eb4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-@media (min-width: 768px) {
-    .hero-image {
-        max-width: 90%;
-    }
+.analysis-btn:hover {
+    background: #6e1489;
+    transform: translateY(-3px);
 }
