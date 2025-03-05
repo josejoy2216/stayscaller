@@ -11,35 +11,35 @@ const FlipCard = () => {
       description:
         "Drive sustainable growth and maximize revenue with intelligent, analytics-backed strategies tailored to your property.",
       icon: "✔️",
-      button: "/stayscaller/service#revenue-management",
+      button: "/service#revenue-management",
     },
     {
       title: "Social Media Marketing",
       description:
         "Maximize your hotel’s reach with platform-specific strategies designed for Instagram, LinkedIn, Facebook, and more",
       icon: "🌍",
-      button: "/stayscaller/service#social-media-marketing",
+      button: "/service#social-media-marketing",
     },
     {
       title: "Reputation Management",
       description:
         "Take control of your hotel’s online presence with our comprehensive reputation management services.",
       icon: "♟️",
-      button: "/stayscaller/service#reputation-management",
+      button: "/service#reputation-management",
     },
     {
       title: "PPC (Pay Per Click)",
       description:
         "Showcase your hotel’s official website and real-time rates directly in Google search results, appearing alongside major OTAs.",
       icon: "🌐",
-      button: "/stayscaller/service#ppc",
+      button: "/service#ppc",
     },
     {
       title: "Content & Photography",
       description:
         "At Stay Scaler, we harness the power of engaging content and stunning photography to elevate your hotel’s online presence and drive revenue",
       icon: "📢",
-      button: "/stayscaller/service#content-and-photography",
+      button: "/service#content-and-photography",
     },
   ];
 
