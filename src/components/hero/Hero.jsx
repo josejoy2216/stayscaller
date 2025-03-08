@@ -20,10 +20,8 @@ const ComponentName = () => {
                     <div className="hero-right">
                         <h1 className="hero-title">Lead the Game. Grow with Us.</h1>
                         <p className="hero-description">
-                            At Stay Scaler, we help hotels thrive with smart data analytics, strategic pricing, and deep industry insights. 
-                            Our expert team, with years of experience in OTA, revenue management, and digital marketing, crafts personalized 
-                            solutions to boost your revenue. Founded by a leader with over a decade in India’s largest OTA, we’re here to turn 
-                            your hotel into a market leader. Let’s grow together!
+                            Stay Scaler empowers hotels with data-driven insights, cutting-edge technology, and deep industry expertise to maximize revenue. 
+                            Our seasoned team is dedicated to transforming your business into a market leader. Let’s grow together!
                         </p>
 
                         {/* Buttons */}

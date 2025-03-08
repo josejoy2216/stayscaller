@@ -22,7 +22,7 @@
   }
   
   .icon-box {
-    background: rgb(0, 0, 0);
+    background: rgb(238 234 234);
     border-radius: 50%;
     width: 120px; /* Slightly increased size */
     height: 120px;
@@ -38,7 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1d1b1bbb; /* Change to desired color */
+    background-color: #fefefebb; /* Change to desired color */
     border-radius: 50%;
   }
   

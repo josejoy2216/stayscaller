@@ -1,208 +1,179 @@
 -----------------------------jsx----------------
-import React, { useEffect, useRef, useState } from "react";
-import "./HowItWorks.css"; // Custom styles
-import { useNavigate } from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap for layout
+import React from "react";
+import "./HowItWorks.css"; // Importing styles
 
-
-const HowItWorks = () => {
-  const navigate = useNavigate();
-  const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 } // Trigger when 30% of the section is visible
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const handleReadMore = () => {
-    navigate('/why-choose-us-detail');
-  };
-
+const StepCards = () => {
   return (
-    <section
-      id="works"
-      ref={sectionRef}
-      className={`py-5 bg-light fade-in-section ${isVisible ? "active" : ""}`}
-    >
-      <div className="container text-center">
-        {/* Section Title */}
-        <h2 className="section-title">HOW IT WORKS</h2>
-        <p className="section-subtitle">Learn more about how our website works</p>
+    <div className="step-card-container">
+      {/* Title Section */}
+      <h2 className="title-h">
+        Make <span>hotel growth</span> effortless
+      </h2>
+      <p className="subtitle">
+        Your all-in-one hotel growth platform designed to help you maximize revenue, optimize occupancy, and stay ahead of market trends.
+      </p>
 
-        {/* Steps Grid */}
-        <div className="row justify-content-center">
-          {[
-            {
-              icon: "flaticon-lightbulb-idea",
-              title: "Analyze",
-              description: "Assess market trends, guest behavior, and historical data to uncover new opportunities.",
-            },
-            {
-              icon: "flaticon-networking",
-              title: "Optimize",
-              description: "Implement dynamic pricing and varied revenue management strategies to optimize revenue.",
-            },
-            {
-              icon: "flaticon-location-on-road",
-              title: "Maximize",
-              description: "Continuously monitor performance, refine strategies, and outperform competitors to maximize growth.",
-            },
-          ].map((step, index) => (
-            <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
-              <div className=" how-it-works-card ">
-                <div className="icon-wrapper">
-                  <i className={`step-icon ${step.icon}`}></i>
-                </div>
-                <h3 className="step-title">{step.title}</h3>
-                <p className="step-description">{step.description}</p>
-                {/* <button className="btn btn-outline-dark read-more-btn" onClick={handleReadMore}>
-                  Read More
-                </button> */}
-              </div>
-            </div>
-          ))}
+      {/* Steps Section */}
+      <div className="steps">
+        {/* Step 1 */}
+        <div className="step-wrapper">
+          <div className="step-card step-1">
+            <h3>Strategize </h3>
+            <p>Assess market trends, guest behavior, and historical data to uncover new opportunities.</p>
+          </div>
+          <div className="arrow">➜</div>
+        </div>
+
+        {/* Step 2 */}
+        <div className="step-wrapper">
+          <div className="step-card step-2">
+            <h3>Optimize </h3>
+            <p>Implement dynamic pricing and varied revenue management strategies to optimize revenue.</p>
+          </div>
+          <div className="arrow">➜</div>
+        </div>
+
+        {/* Step 3 */}
+        <div className="step-wrapper">
+          <div className="step-card step-3">
+            <h3>Scale </h3>
+            <p>Continuously monitor performance, refine strategies, and outperform competitors to maximize growth.</p>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default HowItWorks;
+export default StepCards;
 
 ------------------------------css-----------------------------
+/* Main Container - Centered */
+.step-card-container {
+  background: #121212; /* Dark background */
+  padding: 60px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: white;
+  max-width: 1200px;
+  margin: 50px auto; /* Centering the card */
+}
 
-/* Section Styling */
-.section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
+/* Title */
+.title-h {
+  font-size: 28px;
+  font-weight: 600;
+  color: antiquewhite;
+}
+
+.title-h span {
+  color: #3aa7ff; /* Accent color */
+}
+
+/* Subtitle */
+.subtitle {
+  margin-top: 10px;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* Steps Wrapper */
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+/* Step and Arrow Wrapper */
+.step-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Individual Step Cards */
+.step-card {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  width: 280px;
+  height: 190px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect: Step Moves Up */
+.step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Animated Arrow */
+.arrow {
+  font-size: 24px;
+  color: white;
+  animation: bounce 1.5s infinite ease-in-out;
+  margin: 10px 0;
+  /* Default for mobile: point DOWN */
+  transform: rotate(0deg); 
+}
+
+/* Arrow Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .section-subtitle {
-    font-size: 1.2rem;
-    color: #777;
-    margin-bottom: 30px;
-  }
-  
-  /* Card Styling */
-  .how-it-works-card {
-    background: #fcf2ea; /* Peach background */
-    padding: 25px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
-    animation: fadeInUp 1s ease-in-out both;
-  }
-  
-  .how-it-works-card:hover {
+  50% {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background: #FFC4A3; /* Slightly darker peach on hover */
   }
-  
-  /* Icon Styling */
-  .icon-wrapper {
-    width: 70px;
-    height: 70px;
-    background: #f1b454; /* Light peach */
-    border-radius: 50%;
+}
+
+/* Responsive Styles */
+@media screen and (min-width: 768px) {
+  .steps {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .step-wrapper {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px;
-    transition: background 0.3s ease-in-out;
   }
-  
-  .how-it-works-card:hover .icon-wrapper {
-    background: #dc3545; /* Red on hover */
+
+  .arrow {
+    transform: rotate(-90deg);
+    margin: 0 10px;
   }
-  
-  .step-icon {
-    font-size: 2rem;
-    color: #333; /* Default is darker color for contrast */
+}
+
+@media screen and (max-width: 767px) {
+  .step-card-container {
+    padding: 40px;
+    max-width: 90%;
   }
-  
-  .how-it-works-card:hover .step-icon {
-    color: white; /* White on hover */
+
+  .title-h {
+    font-size: 24px;
   }
-  
-  /* Button Styling */
-  .read-more-btn {
-    margin-top: 15px;
-    border-radius: 20px;
-    padding: 10px 20px;
-    transition: all 0.3s ease-in-out;
+
+  .subtitle {
     font-size: 14px;
-    background: white;
-    color: #333;
-    border: 1px solid #333;
   }
-  
-  .read-more-btn:hover {
-    background: #dc3545; /* Red background on hover */
-    color: white;
-    border-color: #dc3545;
+
+  .step-card {
+    width: 100%;
+    max-width: 300px;
   }
-  
-  /* Responsive Fixes */
-  @media (max-width: 768px) {
-    .how-it-works-card {
-      padding: 20px;
-      margin-bottom: 15px;
-    }
-  
-    .section-title {
-      font-size: 1.8rem;
-    }
-  
-    .section-subtitle {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-  
-    .icon-wrapper {
-      width: 60px;
-      height: 60px;
-    }
-  
-    .step-icon {
-      font-size: 1.8rem;
-    }
-  
-    .read-more-btn {
-      padding: 8px 15px;
-      font-size: 12px;
-    }
+
+  .arrow {
+    transform: rotate(-90deg);
   }
-  
-  /* Animation */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}

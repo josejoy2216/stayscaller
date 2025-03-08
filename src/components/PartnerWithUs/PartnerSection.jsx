@@ -1,27 +1,29 @@
 import React from "react";
-import { DollarSign, HeartPulse, TrendingUp, Settings, User, AlertTriangle } from "lucide-react";
+// import { DollarSign, HeartPulse, TrendingUp, Settings, User, AlertTriangle } from "lucide-react";
 import "./PartnerSection.css"; // Import the CSS file
-import bot from "./assets/bot.png";
-import grow from "./assets/grow.png";
-import mobile from "./assets/mobile.png";
-import partner from "./assets/partner.png";
-import settings from "./assets/settings.png";
+import analytics from "./assets/icons/analytics.png";
+import dashboard from "./assets/icons/dashboard.png";
+import money from "./assets/icons/money.png";
+import radar from "./assets/icons/radar.png";
+import rest from "./assets/icons/rest.png";
+import trophy from "./assets/icons/trophy.png";
 
 
 const PartnerSection = () => {
   const features = [
-    { icon: <div className="icon-circle"><img src={bot} alt="Financial Growth" /></div>, text: "Financial Growth" },
-    { icon: <div className="icon-circle"><img src={grow} alt="Financial Growth" /></div>, text: "Financial Growth" },
-    { icon: <div className="icon-circle"><img src={mobile} alt="Financial Growth" /></div>, text: "Financial Growth" },
-    { icon: <div className="icon-circle"><img src={partner} alt="Financial Growth" /></div>, text: "Financial Growth" },
-    { icon: <div className="icon-circle"><img src={settings} alt="Financial Growth" /></div>, text: "Financial Growth" },
+    { icon: <div className="icon-circle"><img src={analytics} alt="Financial Growth" /></div>, text: "Financial Growth" },
+    { icon: <div className="icon-circle"><img src={dashboard} alt="Financial Growth" /></div>, text: "Financial Growth" },
+    { icon: <div className="icon-circle"><img src={money} alt="Financial Growth" /></div>, text: "Financial Growth" },
+    { icon: <div className="icon-circle"><img src={radar} alt="Financial Growth" /></div>, text: "Financial Growth" },
+    { icon: <div className="icon-circle"><img src={rest} alt="Financial Growth" /></div>, text: "Financial Growth" },
+    { icon: <div className="icon-circle"><img src={trophy} alt="Financial Growth" /></div>, text: "Financial Growth" },
   ];
   
 
   return (
     <div className="partner-section">
       <br />
-      <h2 className="title">Partner With Us For Unmatched Results</h2>
+      <h2 className="title">Why choose us?</h2>
       <div className="icon-container">
         {features.map((item, index) => (
           <div key={index} className="icon-box">

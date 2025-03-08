@@ -13,6 +13,10 @@
     perspective: 1000px;
   }
   
+  .visit-button{
+    padding-bottom: 5px;
+  }
+
   .flip-card-inner {
     width: 100%;
     height: 100%;

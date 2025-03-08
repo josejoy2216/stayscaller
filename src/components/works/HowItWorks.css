@@ -1,129 +1,73 @@
-/* Main Container - Centered */
-.step-card-container {
-  background: #121212; /* Dark background */
-  padding: 60px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  text-align: center;
+.why-choose-section {
+  background-color: #6a1b9a;
   color: white;
-  max-width: 1200px;
-  margin: 50px auto; /* Centering the card */
+  padding: 50px 20px;
+  text-align: center;
 }
 
-/* Title */
-.title-h {
-  font-size: 28px;
-  font-weight: 600;
-  color: antiquewhite;
+.why-choose-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
-.title-h span {
+.text-center span {
   color: #3aa7ff; /* Accent color */
 }
 
-/* Subtitle */
-.subtitle {
-  margin-top: 10px;
-  font-size: 16px;
-  opacity: 0.8;
+.why-choose-section .description {
+  max-width: 600px;
+  margin: 10px auto 30px;
+  font-size: 1.2rem;
 }
 
-/* Steps Wrapper */
-.steps {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  gap: 20px;
-}
-
-/* Step and Arrow Wrapper */
-.step-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Individual Step Cards */
-.step-card {
-  background: white;
+/* Feature Box Styling */
+.feature-box {
+  background-color: white;
   color: black;
   padding: 20px;
-  border-radius: 12px;
-  width: 280px;
-  height: 190px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  min-height: 250px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* Hover Effect: Step Moves Up */
-.step-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+.feature-box img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
 }
 
-/* Animated Arrow */
-.arrow {
-  font-size: 24px;
-  color: white;
-  animation: bounce 1.5s infinite ease-in-out;
-  margin: 10px 0;
-  /* Default for mobile: point DOWN */
-  transform: rotate(0deg); 
+.feature-box h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
-/* Arrow Animation */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+.feature-box p {
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  max-height: 100px; /* Prevents text from overflowing */
 }
 
-/* Responsive Styles */
-@media screen and (min-width: 768px) {
-  .steps {
-    flex-direction: row;
-    gap: 15px;
-  }
-
-  .step-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .arrow {
-    transform: rotate(-90deg);
-    margin: 0 10px;
-  }
+/* Mobile Horizontal Scroll */
+.mobile-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
 }
 
-@media screen and (max-width: 767px) {
-  .step-card-container {
-    padding: 40px;
-    max-width: 90%;
-  }
+.scroll-container {
+  display: flex;
+  gap: 15px;
+}
 
-  .title-h {
-    font-size: 24px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-  }
-
-  .step-card {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .arrow {
-    transform: rotate(-90deg);
-  }
+.scroll-container .feature-box {
+  min-width: 80%;
+  display: inline-block;
+  max-width: 300px; /* Ensures a uniform width */
 }

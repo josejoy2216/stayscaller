@@ -1,94 +1,48 @@
 import React from "react";
-import "./Footer.css"; // Custom styles
+import "./Footer.css";
+import footerimg from "./assets/footer.png";
 
 const Footer = () => {
   return (
-    <footer className="footer ">
-      <div className="container py-5">
-        <div className="row">
-          {/* Discover Stay Scaler Section */}
-          <div className="col-md-3">
-            <h5 className="footer-heading">Discover Stay Scaler</h5>
-            <ul className="list-unstyled">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
-              <li><a href="#">Cancellation & Refund Policy</a></li>
-            </ul>
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          {/* Left Section - Contact Info */}
+          <div className="footer-left">
+            <h5 className="footer-heading">Let's Connect with Stay Scaler</h5>
+            <p className="footer-text">
+              Want to enhance your hotel’s bookings and brand presence? Share your details, and we’ll offer personalized solutions.
+            </p>
+            <img className="footer-img" src={footerimg} alt="Stay Scaler" />
           </div>
 
-          {/* Our Offerings Section */}
-          <div className="col-md-3">
-            <h5 className="footer-heading">Our Offerings</h5>
-            <ul className="list-unstyled">
-              <li><a href="#">Revenue Management</a></li>
-              <li><a href="#">Digital Marketing</a></li>
-              <li><a href="#">Reputation Marketing</a></li>
-              <li><a href="#">Pay Per Click</a></li>
-              <li><a href="#">Content & Photography</a></li>
-
-            </ul>
-          </div>
-
-          {/* Company Section */}
-          <div className="col-md-3">
-            <h5 className="footer-heading">Company</h5>
-            <ul className="list-unstyled">
-              <li><a href="#">Blogs</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
-          </div>
-
-          {/* Business Section */}
-          <div className="col-md-3">
-            <h5 className="footer-heading">Business</h5>
-            <ul className="list-unstyled">
-              <li><a href="#">Free Hotel Gap Analysis</a></li>
-              <li><a href="#">Revenue Challenge</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Contact Form Section */}
-        <div className="row mt-4">
-          <div className="col-md-6">
-            <h5 className="footer-heading">Connect with Stay Scaler</h5>
-            <p>Have a question? Get in touch with us!</p>
-
-            <div className="social-icons mt-3">
-              <a href="#" className="me-3 text-dark"><i className="bi bi-facebook fs-4"></i></a>
-              <a href="#" className="me-3 text-dark"><i className="bi bi-twitter fs-4"></i></a>
-              <a href="#" className="me-3 text-dark"><i className="bi bi-instagram fs-4"></i></a>
-              <a href="#" className="me-3 text-dark"><i className="bi bi-whatsapp fs-4"></i></a>
+          {/* Right Section - Contact Form */}
+          <div className="footer-right">
+            <p className="footer-contact-text">Have any questions? Reach out to us!</p>
+            
+            {/* Social Icons */}
+            <div className="social-icons">
+              <a href="#" className="social-icon"><i className="bi bi-facebook"></i></a>
+              <a href="#" className="social-icon"><i className="bi bi-twitter"></i></a>
+              <a href="#" className="social-icon"><i className="bi bi-instagram"></i></a>
+              <a href="#" className="social-icon"><i className="bi bi-whatsapp"></i></a>
             </div>
             <br />
-
-          </div>
-
-          <div className="col-md-6">
+            {/* Contact Form */}
             <form className="contact-form">
-              <div className="mb-3">
-                <input type="text" className="form-control" placeholder="Name" required />
-              </div>
-              <div className="mb-3">
-                <input type="tel" className="form-control" placeholder="Phone Number" required />
-              </div>
-              <div className="mb-3">
-                <input type="email" className="form-control" placeholder="Email" required />
-              </div>
-              <div className="mb-3">
-                <textarea className="form-control" rows="3" placeholder="Message" required></textarea>
-              </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <input type="text" className="form-input" placeholder="Your Name" required />
+              <input type="tel" className="form-input" placeholder="Phone Number" required />
+              <input type="email" className="form-input" placeholder="Email Address" required />
+              <textarea className="form-input textarea" rows="3" placeholder="Message" required></textarea>
+              <button type="submit" className="submit-btn">Send Message</button>
             </form>
           </div>
-          
         </div>
       </div>
 
       {/* Copyright Section */}
-      <div className="text-center py-3 border-top">
-        <small>© 2024 Stay Scaler. All Rights Reserved.</small>
+      <div className="footer-bottom">
+        <p>© 2025 Stay Scaler. All Rights Reserved.</p>
       </div>
     </footer>
   );
