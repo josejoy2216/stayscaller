@@ -26,9 +26,11 @@ const ComponentName = () => {
 
                         {/* Buttons */}
                         <div className="hero-buttons">
-                            <a className="revenue-btn" href="#revenue">
+                            <a className="revenue-btn" onClick={() => navigate("/revenue-challenge")}>
                                 <FaChartLine /> Revenue Challenge
                             </a>
+                            
+
                             <button className="analysis-btn" onClick={() => navigate("/hotel-gap-analysis")}>
                                 Free Hotel GAP Analysis
                             </button>

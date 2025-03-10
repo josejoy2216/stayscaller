@@ -84,7 +84,7 @@ const Navbar = () => {
 
           {/* <a href="#blog"><FaBookOpen /> Blog</a> */}
           <a href="#blog"> Blog</a>
-          <a className="revenue-btn" href="#revenue"><FaChartLine /> Revenue Challenge</a>
+          <a className="revenue-btn" onClick={() => navigate("/revenue-challenge")} ><FaChartLine /> Revenue Challenge</a>
           <a className="analysis-btn" onClick={() => navigate("/hotel-gap-analysis")} >Free Hotel GAP Analysis</a>
         </div>
       </div>
