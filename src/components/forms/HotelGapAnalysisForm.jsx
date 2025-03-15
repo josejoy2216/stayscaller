@@ -367,15 +367,35 @@ const HotelGapAnalysisForm = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbysUGgJGJAs6i0Ol20-nTu65B0ioqaFT2sroMxxeYBY2naGY7UOgeJYLJL_Uc1oKqIs/exec", {
+      const formDataToSend = new FormData();
+      
+      // Append each field manually to match Web3Forms format
+      formDataToSend.append("access_key", "9014c775-b760-49d7-bfe2-4d9bfe13e9a0"); // Use your Web3Forms access key
+      formDataToSend.append("hotelName", formData.hotelName);
+      formDataToSend.append("userName", formData.userName);
+      formDataToSend.append("mobile", formData.mobile);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("rooms", formData.rooms);
+      formDataToSend.append("location", formData.location);
+      formDataToSend.append("competitor1", formData.competitor1);
+      formDataToSend.append("competitor2", formData.competitor2);
+      formDataToSend.append("competitor3", formData.competitor3);
+      formDataToSend.append("competitor4", formData.competitor4);
+      formDataToSend.append("instagram", formData.instagram);
+      formDataToSend.append("facebook", formData.facebook);
+      formDataToSend.append("website", formData.website);
+  
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
-
-      if (response.ok) {
+  
+      const data = await response.json();
+  
+      if (data.success) {
         setFormSubmitted(true);
-        alert("Thank you! Your data has been saved.");
+        alert("Thank you! Your data has been sent via email.");
+  
         setFormData({
           hotelName: "",
           userName: "",
@@ -389,18 +409,19 @@ const HotelGapAnalysisForm = () => {
           competitor4: "",
           instagram: "",
           facebook: "",
-          website: ""
+          website: "",
         });
-        // Reset to first step after successful submission
-        setCurrentStep(1);
+  
+        setCurrentStep(1); // Reset to first step after successful submission
       } else {
-        alert("Error! Please try again.");
+        alert("Error! " + data.message);
       }
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to submit. Please check your internet connection and try again.");
     }
   };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br">
@@ -410,13 +431,44 @@ const HotelGapAnalysisForm = () => {
             <ProgressSteps currentStep={currentStep} />
             
             {formSubmitted ? (
-              <div className="form-success">
-                <Check className="w-16 h-16 text-green-500" />
-                <h2 className="heading">Submission Successful!</h2>
-                <p className="text-center">Thank you for your information. We'll be in touch soon.</p>
+               <div style={{
+                textAlign: 'center',
+                maxWidth: '400px',
+                margin: '30px auto',
+                padding: '25px',
+                backgroundColor: 'white',
+                borderRadius: '8px',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+              }}>
+                <Check style={{
+                  width: '64px',
+                  height: '64px',
+                  color: '#22c55e',
+                  margin: '0 auto 20px'
+                }} />
+                
+                <h2 style={{
+                  fontSize: '24px',
+                  fontWeight: 'bold',
+                  marginBottom: '15px'
+                }}>Submission Successful!</h2>
+                
+                <p style={{
+                  color: '#555',
+                  marginBottom: '25px'
+                }}>Thank you for your information. We'll be in touch soon.</p>
+                
                 <button 
                   onClick={() => setFormSubmitted(false)} 
-                  className="btn btn-primary"
+                  style={{
+                    backgroundColor: '#3b82f6',
+                    color: 'white',
+                    border: 'none',
+                    padding: '10px 20px',
+                    borderRadius: '4px',
+                    fontWeight: '500',
+                    cursor: 'pointer'
+                  }}
                 >
                   Submit Another Form
                 </button>

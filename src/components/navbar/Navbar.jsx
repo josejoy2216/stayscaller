@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaAngleDown, FaHotel, FaChartLine, FaChevronDown  , FaClipboardList, FaBookOpen, FaHandshake, FaPhone } from 'react-icons/fa';
 import './navbar.css';
+import navlogo from "../assets/icons/logoicon.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="nav-brand" onClick={home}>
           {/* <FaHotel className="nav-icon" /> Stayscaller */}
-          Stayscaller
+          <img className="logoicon" src={navlogo} alt="Logo" style={{ width: "230px", height: "220px", }} />
         </div>
         <button className="nav-toggle" onClick={toggleMenu}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}

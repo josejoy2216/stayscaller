@@ -16,6 +16,26 @@
   /* overflow: hidden;  Prevents content from pushing it */
 }
 
+.logoicon {
+  width: 230px;
+  height: 100px;
+  object-fit: contain;
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+}
+
+.navbar.scrolled .logoicon {
+  background-color: transparent !important;
+  filter: none !important;
+}
+
+.navbar.scrolled .nav-brand {
+  background: transparent !important;
+}
+
+
+
+
 .navbar.scrolled {
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out; 
   background: white;

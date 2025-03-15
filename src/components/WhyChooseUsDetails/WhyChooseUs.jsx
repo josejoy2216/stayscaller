@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./WhyChooseUs.css";
-import partner from "../assets/img/1.jpg";
+
+import ContentPhotography from "../assets/img/1.jpg";
+import PPC from "../assets/img/7.jpg";
+import ReputationManagement from "../assets/img/2.jpg";
+import SocialMediaMarketing from "../assets/img/5.jpg";
+import RevenueManagement from "../assets/img/3.jpg";
+
+
 
 const WhyChooseUs = () => {
   const location = useLocation();
@@ -16,7 +23,7 @@ const WhyChooseUs = () => {
           <div className="split-content">
             {/* Left Side - Image (40%) */}
             <div className="image-section">
-              <img src={partner} alt="Excellence in Service" />
+              <img src={RevenueManagement} alt="Excellence in Service" />
             </div>
 
             {/* Right Side - Text Content (60%) */}
@@ -70,7 +77,7 @@ const WhyChooseUs = () => {
           <div className="split-content">
             {/* Left Side - Image (40%) */}
             <div className="image-section">
-              <img src={partner} alt="Excellence in Service" />
+              <img src={SocialMediaMarketing} alt="Excellence in Service" />
             </div>
 
             {/* Right Side - Text Content (60%) */}
@@ -110,7 +117,7 @@ const WhyChooseUs = () => {
           <div className="split-content">
             {/* Left Side - Image (40%) */}
             <div className="image-section">
-              <img src={partner} alt="Excellence in Service" />
+              <img src={ReputationManagement} alt="Excellence in Service" />
             </div>
 
             {/* Right Side - Text Content (60%) */}
@@ -149,7 +156,7 @@ const WhyChooseUs = () => {
           <div className="split-content">
             {/* Left Side - Image (40%) */}
             <div className="image-section">
-              <img src={partner} alt="Excellence in Service" />
+              <img src={PPC} alt="Excellence in Service" />
             </div>
 
             {/* Right Side - Text Content (60%) */}
@@ -189,7 +196,7 @@ const WhyChooseUs = () => {
           <div className="split-content">
             {/* Left Side - Image (40%) */}
             <div className="image-section">
-              <img src={partner} alt="Excellence in Service" />
+              <img src={ContentPhotography} alt="Excellence in Service" />
             </div>
 
             {/* Right Side - Text Content (60%) */}

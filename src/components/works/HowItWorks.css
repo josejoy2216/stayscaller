@@ -8,6 +8,7 @@
 .why-choose-section h2 {
   font-size: 2.5rem;
   font-weight: bold;
+  color: white;
 }
 
 .text-center span {
@@ -29,15 +30,18 @@
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
-  min-height: 250px; /* Fixed height for all cards */
+  min-height: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
 .feature-box img {
-  width: 50px;
-  height: 50px;
+  width: 40%;  /* Image width as a percentage of parent */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 80px; /* Prevent excessive scaling */
+  max-height: 80px; /* Prevent excessive scaling */
   margin-bottom: 15px;
 }
 

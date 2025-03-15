@@ -21,7 +21,7 @@ const ComponentName = () => {
                         <h1 className="hero-title">Lead the Game. Grow with Us.</h1>
                         <p className="hero-description">
                             Stay Scaler empowers hotels with data-driven insights, cutting-edge technology, and deep industry expertise to maximize revenue. 
-                            Our seasoned team is dedicated to transforming your business into a market leader. Let’s grow together!
+                            Our seasoned team is dedicated to transforming your business into a market leader. <strong> Let’s grow together! </strong> 
                         </p>
 
                         {/* Buttons */}

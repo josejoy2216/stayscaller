@@ -1,13 +1,13 @@
 import React from "react";
 import "./HowItWorks.css"; // Importing the CSS file
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap
-import grow from "./assets/grow.png";
-import partner from "./assets/partner.png";
-import settings from "./assets/settings.png";
+import Strategize from "./assets/Strategize.png";
+import Scale from "./assets/Scale.png";
+import Optimize from "./assets/Optimize.png";
 
 const WhyChooseUs = () => {
   return (
-    <div className="why-choose-section">
+    <div id="what-we-do" className="why-choose-section">
       <h2 className="text-center">
         Make <span>hotel growth</span> effortless
       </h2>
@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
         <div className="row">
           <div className="col-md-4">
             <div className="feature-box">
-              <img src={settings} alt="Strategize" />
+              <img src={Strategize} alt="Strategize" />
               <h3>Strategize</h3>
               <p>
                 Assess market trends, guest behavior, and historical data to uncover new opportunities.
@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
           </div>
           <div className="col-md-4">
             <div className="feature-box">
-              <img src={partner} alt="Optimize" />
+              <img src={Optimize} alt="Optimize" />
               <h3>Optimize</h3>
               <p>
                 Implement dynamic pricing and varied revenue management strategies to optimize revenue.
@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
           </div>
           <div className="col-md-4">
             <div className="feature-box">
-              <img src={grow} alt="Scale" />
+              <img src={Scale} alt="Scale" />
               <h3>Scale</h3>
               <p>
                 Continuously monitor performance, refine strategies, and outperform competitors to maximize growth.
@@ -53,21 +53,21 @@ const WhyChooseUs = () => {
       <div className="mobile-scroll d-md-none">
         <div className="scroll-container">
           <div className="feature-box">
-            <img src={settings} alt="Strategize" />
+            <img src={Strategize} alt="Strategize" />
             <h3>Strategize</h3>
             <p>
               Assess market trends, guest behavior, and historical data to uncover new opportunities.
             </p>
           </div>
           <div className="feature-box">
-            <img src={partner} alt="Optimize" />
+            <img src={Optimize} alt="Optimize" />
             <h3>Optimize</h3>
             <p>
               Implement dynamic pricing and varied revenue management strategies to optimize revenue.
             </p>
           </div>
           <div className="feature-box">
-            <img src={grow} alt="Scale" />
+            <img src={Scale} alt="Scale" />
             <h3>Scale</h3>
             <p>
               Continuously monitor performance, refine strategies, and outperform competitors to maximize growth.

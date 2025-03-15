@@ -12,6 +12,15 @@
     height: 300px;
     perspective: 1000px;
   }
+
+  .service-icon {
+    width: 80px; /* Adjust as needed */
+    height: 80px;
+    object-fit: contain; /* Ensures the image fits well without distortion */
+    display: block;
+    margin: 5px auto; /* Centers the image */
+  }
+  
   
   .visit-button{
     padding-bottom: 5px;
@@ -46,7 +55,8 @@
   }
   
   .flip-card-front {
-    background: #092543;
+    /* background: #092543; */
+    background: #574d5e;
     color: rgb(167, 165, 161);
   }
   
