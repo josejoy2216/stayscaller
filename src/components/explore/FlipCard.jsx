@@ -64,26 +64,32 @@ const FlipCard = () => {
 
   return (
     <div className="services-container">
-      {services.map((service, index) => (
-        <div key={index} className="flip-card">
-          <div className="flip-card-inner">
-            {/* Front Side */}
-            <div className="flip-card-front">
-              <img src={service.icon} alt={service.title} className="service-icon" />
-              <h3>{service.title}</h3>
+      <div className="container">
+        <div className="row"> {/* Bootstrap row to ensure proper layout */}
+          {services.map((service, index) => (
+            <div key={index} className="col-md-4 col-sm-6 mb-4"> 
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  {/* Front Side */}
+                  <div className="flip-card-front">
+                    <img src={service.icon} alt={service.title} className="service-icon" />
+                    <h3>{service.title}</h3>
+                  </div>
+                  {/* Back Side */}
+                  <div className="flip-card-back">
+                    <img src={service.icon} alt={service.title} className="service-icon" />
+                    <h3 className="title">{service.title}</h3>
+                    <p className="description">{service.description}</p>
+                    <button className="visit-button" onClick={() => handleNavigation(service.button)}>
+                      Know More
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            {/* Back Side */}
-            <div className="flip-card-back">
-              <img src={service.icon} alt={service.title} className="service-icon" />
-              <h3 className="title">{service.title}</h3>
-              <p className="description">{service.description}</p>
-              <button className="visit-button" onClick={() => handleNavigation(service.button)}>
-                Know More
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
