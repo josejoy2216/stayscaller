@@ -41,11 +41,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    // <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <nav className="navbar">
       <div className="navbar-container">
         <div className="nav-brand" onClick={home}>
           {/* <FaHotel className="nav-icon" /> Stayscaller */}
-          <img className="logoicon" src={navlogo} alt="Logo" style={{ width: "230px", height: "220px", }} />
+          <img className="logoicon" src={navlogo} alt="Logo" style={{ width: "230px", }} />
         </div>
         <button className="nav-toggle" onClick={toggleMenu}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -77,7 +78,8 @@ const Navbar = () => {
             <Link to="/service#revenue-management">Revenue Management</Link>
             <Link to="/service#social-media-marketing">Social Media Marketing</Link>
             <Link to="/service#reputation-management">Reputation Management</Link>
-            <Link to="/service#ppc">PPC</Link>
+            <Link to="/service#ppc">Increase Direct Bookings</Link>
+            <Link to="/service#PriceInsight">Price Insight</Link>
             <Link to="/service#content-and-photography">Content & Photography</Link>
 
             </div>

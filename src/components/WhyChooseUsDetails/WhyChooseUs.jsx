@@ -3,10 +3,11 @@ import { useLocation } from "react-router-dom";
 import "./WhyChooseUs.css";
 
 import ContentPhotography from "../assets/img/1.jpg";
-import PPC from "../assets/img/7.jpg";
+import PPC from "../assets/img/DirectBooking.jpg";
 import ReputationManagement from "../assets/img/2.jpg";
 import SocialMediaMarketing from "../assets/img/5.jpg";
 import RevenueManagement from "../assets/img/3.jpg";
+import PriceInsight from "../assets/img/PriceInsight.jpg";
 
 const WhyChooseUs = () => {
   const location = useLocation();
@@ -27,7 +28,7 @@ const WhyChooseUs = () => {
               <img src={RevenueManagement} alt="Revenue Management" className="fixed-image" />
             </div>
             <div className="text-section">
-              <h4>✅ What We Offer:</h4>
+              <h4>✅ What We Deliver:</h4>
               <ul>
                 <li><strong>Market Intelligence:</strong> Analyze competitors, demand trends, and booking patterns.</li>
                 <li><strong>Accurate Forecasting:</strong> Predict trends to optimize pricing and inventory.</li>
@@ -85,7 +86,7 @@ const WhyChooseUs = () => {
               <img src={ReputationManagement} alt="Reputation Management" className="fixed-image" />
             </div>
             <div className="text-section">
-              <h4>✅ What We Offer:</h4>
+              <h4>✅ What We Deliver:</h4>
               <ul>
                 <li><strong>Monitor & Analyze:</strong> Track reviews, mentions, and feedback in real-time.</li>
                 <li><strong>Strategic Response:</strong> Address concerns professionally and highlight positive reviews.</li>
@@ -102,20 +103,20 @@ const WhyChooseUs = () => {
     },
     {
       id: "ppc",
-      title: "PPC (Pay Per Click)",
+      title: "Increase Direct Bookings",
       content: (
         <div className="content-container">
           <p className="full-width-text">
-            Drive Direct Bookings with Google Booking Links. Showcase your hotel’s official website and real-time rates directly in Google search results.
+            Drive Direct Customer Bookings with Google Booking Links. Showcase your 'Official Website' tag and real-time rates on Google, standing out next to OTAs. Attract more guests, highlight your best prices, and cut out high OTA commissions.
           </p>
           <div className="split-content">
             <div className="image-section">
               <img src={PPC} alt="PPC" className="fixed-image" />
             </div>
             <div className="text-section">
-              <h4>✅ Key Benefits:</h4>
+              <h4>✅ What We Deliver:</h4>
               <ul>
-                <li><strong>Increased Visibility:</strong> Appear in Google search results next to OTAs.</li>
+                <li><strong>Increased Visibility:</strong> Drive higher conversion with the "Official Website" Tag & Appear in Google search results next to OTAs.</li>
                 <li><strong>Competitive Edge:</strong> Display your best rates and offers.</li>
                 <li><strong>Cost Efficiency:</strong> Save on high OTA commission fees.</li>
                 <li><strong>Seamless Booking:</strong> Let travelers book directly from Google.</li>
@@ -124,6 +125,34 @@ const WhyChooseUs = () => {
           </div>
           <p className="full-width-text">
             Boost direct bookings and take control of your revenue with Google Booking Links.
+          </p>
+        </div>
+      ),
+    },
+    {
+      id: "PriceInsight",
+      title: "Price Insight",
+      content: (
+        <div className="content-container">
+          <p className="full-width-text">
+          Outperform competitors with Price Insight. Track real-time market rates, optimize your pricing strategy, and unlock higher revenue with data-driven insights.
+          </p>
+          <div className="split-content">
+            <div className="image-section">
+              <img src={PriceInsight} alt="Price Insight" className="fixed-image" />
+            </div>
+            <div className="text-section">
+              <h4>✅ What We Deliver:</h4>
+              <ul>
+                <li><strong>Real-Time Rate Tracking:</strong> Monitor competitor pricing dynamically to stay competitive.</li>
+                <li><strong>Data-Driven Decisions:</strong> Make informed pricing adjustments with accurate market analysis.</li>
+                <li><strong>Boost Revenue:</strong> Optimize your rates to attract more bookings and increase profitability.</li>
+                <li><strong>Demand Forecast:</strong> Track 90-day comp set demand trends to pinpoint peak and low periods, enabling smarter pricing decisions and maximizing revenue potential.</li>
+              </ul>
+            </div>
+          </div>
+          <p className="full-width-text">
+            Take control of your pricing strategy and unlock your property's full revenue potential with Price Insight.
           </p>
         </div>
       ),

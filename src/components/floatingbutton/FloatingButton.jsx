@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa"; // Using React Icons for better ren
 
 const FloatingButton = () => {
     return (
-        <a href="https://wa.me/9167336346" target="_blank" rel="noopener noreferrer" className="floating-button">
+        <a href="https://wa.me/8433762608" target="_blank" rel="noopener noreferrer" className="floating-button">
             <FaWhatsapp className="whatsapp-icon" />
         </a>
     );

@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      <br />
       <ProgressStepForm />
       <Footer />
     </>

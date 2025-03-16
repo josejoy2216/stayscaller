@@ -4,8 +4,9 @@ import "./FlipCard.css";
 import revenuemanagement from "./img/Revenue-Management.png";
 import socialmediamarketing from "./img/social-media.png";
 import reputationmanagement from "./img/Reputation-Management.png";
-import ppc from "./img/PPC.png";
-import contentphotography from "./img/Reputation-Management.png";
+import directbooking from "./img/Direct-Booking.png";
+import contentphotography from "./img/Content-photo.png";
+import priceinsight from "./img/Price-Insight.png";
 
 const FlipCard = () => {
   const navigate = useNavigate();
@@ -19,11 +20,18 @@ const FlipCard = () => {
       button: "/service#revenue-management",
     },
     {
-      title: "Social Media Marketing",
+      title: "Increase Direct Bookings",
       description:
-        "Maximize your hotel’s reach with platform-specific strategies designed for Instagram, LinkedIn, Facebook, and more",
-      icon: socialmediamarketing,
-      button: "/service#social-media-marketing",
+        "Showcase your hotel’s official website and real-time rates directly in Google search results, appearing alongside major OTAs.",
+      icon: directbooking,
+      button: "/service#ppc",
+    },
+    {
+      title: "Price Insight",
+      description:
+        "Outperform competitors with Price Insight. Track real-time market rates, optimize your pricing strategy, and unlock higher revenue with data-driven insights.",
+      icon: priceinsight,
+      button: "/service#PriceInsight",
     },
     {
       title: "Reputation Management",
@@ -33,11 +41,11 @@ const FlipCard = () => {
       button: "/service#reputation-management",
     },
     {
-      title: "PPC (Pay Per Click)",
+      title: "Social Media Marketing",
       description:
-        "Showcase your hotel’s official website and real-time rates directly in Google search results, appearing alongside major OTAs.",
-      icon: ppc,
-      button: "/service#ppc",
+        "Maximize your hotel’s reach with platform-specific strategies designed for Instagram, LinkedIn, Facebook, and more",
+      icon: socialmediamarketing,
+      button: "/service#social-media-marketing",
     },
     {
       title: "Content & Photography",

@@ -19,7 +19,7 @@
 
 .flip-card {
   width: 350px;
-  height: 300px;
+  height: 320px;
   perspective: 1000px;
   margin: auto; /* Ensures the cards are centered */
 }
@@ -75,10 +75,10 @@
   transform: rotateX(-180deg);
 }
 
-.flip-card-back .icon,
-.flip-card-front .icon {
-  font-size: 40px;
-  margin-bottom: 10px;
+.flip-card-back .service-icon,
+.flip-card-front .service-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
 }
 
 .flip-card-back .title {
@@ -87,4 +87,52 @@
 
 .flip-card-back .description {
   font-size: 14px;
+}
+
+
+/* Small Screens (Phones) */
+@media (max-width: 768px) {
+  .services-container {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .flip-card {
+    max-width: 100%;
+    height: 250px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .flip-card-back .title {
+    font-size: 20px;
+  }
+
+  .flip-card-back .description {
+    font-size: 12px;
+  }
+}
+
+/* Tablets (iPads & Medium Screens) */
+@media (max-width: 1024px) {
+  .services-container {
+    padding: 30px;
+  }
+
+  .flip-card {
+    max-width: 300px;
+    height: 280px;
+  }
+}
+
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+  .services-container {
+    max-width: 1400px;
+    margin: auto;
+  }
 }

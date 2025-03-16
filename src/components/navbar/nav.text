@@ -1,35 +1,66 @@
 .navbar {
-  position: fixed !important; /* Keep it fixed at the top */
+  position: fixed; /* Keeps it fixed on top */
   top: 0;
   left: 0;
   width: 100%;
-  background: white; /* Changed from purple to white */
+  /* background: #373188; */
+  background: #373188;
+  opacity: 0.90;
   padding: 0.1rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  transition: box-shadow 0.5s ease-in-out;
+  z-index: 1000; /* Ensure it's above other elements */
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out; 
+  /* overflow: hidden;  Prevents content from pushing it */
 }
 
 .logoicon {
-  width: 90px;
-  /* height: 38px; */
-  margin-bottom: 5px;
+  width: 230px;
+  height: 100px;
   object-fit: contain;
   background: transparent !important;
   mix-blend-mode: normal !important;
 }
 
-/* Navbar scrolled doesn't need to change background since it's always white */
-/* .navbar.scrolled {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
-  position: fixed;
+.navbar.scrolled .logoicon {
+  background-color: transparent !important;
+  filter: none !important;
+}
+
+.navbar.scrolled .nav-brand {
+  background: transparent !important;
+}
+
+
+
+
+.navbar.scrolled {
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out; 
+  background: white;
+  position: fixed; /* Ensure it remains fixed */
   top: 0;
   left: 0;
-} */
+}
+
+.navbar.scrolled .nav-brand,
+.navbar.scrolled .nav-links a,
+.navbar.scrolled .nav-links {
+  color: #28217f;
+  background-color: white;
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out; 
+}
+
+.navbar.scrolled .analysis-btn{
+  background: #942eb4 !important; /* Keep their original background */
+  color: white !important; /* Keep text color */
+}
+.navbar.scrolled .revenue-btn {
+  background: #30b6c9 !important; /* Keep their original background */
+  color: white !important; /* Keep text color */
+}
 
 .navbar-container {
   max-width: 1400px;
@@ -43,30 +74,28 @@
   width: 100%;
 }
 
-/* .nav-brand {
-  color: #373188; 
+.nav-brand {
+  color: white;
   font-size: 1.5rem;
   font-weight: bold;
   transition: color 0.3s ease-in-out;
-  background: white; 
-} */
+}
 
 .nav-links {
   display: flex;
   gap: 2rem;
   align-items: center;
-  background: white; /* Match navbar background */
 }
 
 .nav-links a {
-  color: #373188; /* Changed to purple */
+  color: #ffeaea;
   text-decoration: none;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease-in-out;
 }
 
 .nav-links a:hover {
-  color: #28217f; /* Darker purple on hover */
+  color: white;
 }
 
 .dropdown {
@@ -75,7 +104,7 @@
 
 @media screen and (min-width: 769px) {
   .dropdown:hover .dropdown-content {
-    display: block;
+      display: block;
   }
 }
 
@@ -90,17 +119,16 @@
 }
 
 .dropdown-content a {
-  color: #373188; /* Changed to purple */
+  color: #333;
   padding: 12px 16px;
   display: block;
 }
 
 .dropdown-content a:hover {
   background-color: #f1f1f1;
-  color: #28217f; /* Darker purple on hover */
+  color: black;
 }
 
-/* Keep the special buttons with their styles */
 .analysis-btn {
   background: #942eb4;
   color: white !important;
@@ -131,31 +159,40 @@
 
 @media screen and (max-width: 768px) {
   .nav-toggle {
-    display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001; 
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001; 
   }
 
   .hamburger {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: #373188; /* Changed to purple */
-    position: relative;
-    transition: background 0.3s ease-in-out;
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      position: relative;
+      transition: background 0.3s ease-in-out;
+  }
+
+  .navbar.scrolled .hamburger {
+      background: #28217f;
   }
 
   .hamburger::before,
   .hamburger::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 3px;
-    background: #373188; /* Changed to purple */
-    left: 0;
-    transition: background 0.3s ease-in-out;
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      left: 0;
+      transition: background 0.3s ease-in-out;
+  }
+
+  .navbar.scrolled .hamburger::before,
+  .navbar.scrolled .hamburger::after {
+      background: #28217f;
   }
 
   .hamburger::before { top: -8px; }
@@ -178,49 +215,52 @@
     position: absolute;
     top: 60px;
     left: 0;
-    background: white; /* Changed to white */
+    background: #373188;
     padding: 1rem 0;
     text-align: center;
     transition: all 0.3s ease-in-out;
   }
   .nav-links a {
     padding: 1rem;
-    color: #373188; /* Changed to purple */
+    color: white;
     display: block;
   }
 
   .nav-links.active {
     display: flex;
-    background-color: white; /* Changed to white */
-    opacity: 1;
-    border-top: 1px solid #e0e0e0;
+    background-color: #373188; /* Solid white background change this color on scroll*/
+    opacity: 1; /* Ensure full opacity */
+    border-top: 1px solid #e0e0e0; /* Add subtle separator */
   }
 
+  /* Make sure dropdown appears when clicked */
   .dropdown-content {
     display: none;
     position: static;
     width: 100%;
-    background-color: white;
-    color: #373188; /* Changed to purple */
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
     border-radius: 4px;
     margin-top: 5px;
-    padding-left: 0;
+    padding-left: 0; /* Remove left padding */
   }
   
+  /* This is critical - ensure .show class displays the dropdown */
   .dropdown-content.show {
-    display: block !important;
-    background-color: #f5f5f5;
+    display: block !important; /* Force display with !important */
+    background-color: #f5f5f5; /* Solid background  */ 
     opacity: 1;
   }
   
+  /* Ensure dropdown links are visible */
   .dropdown-content a {
     padding: 8px 16px;
-    color: #373188; /* Changed to purple */
+    color: #28217f;
     display: block;
     width: 100%;
   }
 
   .analysis-btn {
-    width: fit-content;
+      width: fit-content;
   }
-} 
+}
