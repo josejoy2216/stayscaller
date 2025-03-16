@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/stayscaller/static/css/main.a5276a90.css",
-    "main.js": "/stayscaller/static/js/main.77f77629.js",
+    "main.css": "/stayscaller/static/css/main.ac49fb52.css",
+    "main.js": "/stayscaller/static/js/main.d6daa425.js",
     "static/js/488.4f0be716.chunk.js": "/stayscaller/static/js/488.4f0be716.chunk.js",
     "static/media/5.jpg": "/stayscaller/static/media/5.74300677d8e37c0a2816.jpg",
     "static/media/hero.gif": "/stayscaller/static/media/hero.3f44a4fa4b8b22a52ffa.gif",
-    "static/media/7.jpg": "/stayscaller/static/media/7.76839b17c85c9307aa32.jpg",
+    "static/media/PriceInsight.jpg": "/stayscaller/static/media/PriceInsight.c087a3ab25381e309b84.jpg",
     "static/media/3.jpg": "/stayscaller/static/media/3.1b96fa8f32de90620f36.jpg",
     "static/media/footer.png": "/stayscaller/static/media/footer.7e7f399979ec3dd2987e.png",
+    "static/media/DirectBooking.jpg": "/stayscaller/static/media/DirectBooking.800140f017cb975869a4.jpg",
     "static/media/1.jpg": "/stayscaller/static/media/1.48759949aca0490467b4.jpg",
     "static/media/2.jpg": "/stayscaller/static/media/2.91e663097343786fc480.jpg",
     "static/media/logoicon.png": "/stayscaller/static/media/logoicon.b825702c098f1884f4df.png",
@@ -27,12 +28,12 @@
     "static/media/rest.png": "/stayscaller/static/media/rest.d1850320dfc3a9a3872f.png",
     "static/media/dashboard.png": "/stayscaller/static/media/dashboard.92ad6c7814dad472ced5.png",
     "index.html": "/stayscaller/index.html",
-    "main.a5276a90.css.map": "/stayscaller/static/css/main.a5276a90.css.map",
-    "main.77f77629.js.map": "/stayscaller/static/js/main.77f77629.js.map",
+    "main.ac49fb52.css.map": "/stayscaller/static/css/main.ac49fb52.css.map",
+    "main.d6daa425.js.map": "/stayscaller/static/js/main.d6daa425.js.map",
     "488.4f0be716.chunk.js.map": "/stayscaller/static/js/488.4f0be716.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5276a90.css",
-    "static/js/main.77f77629.js"
+    "static/css/main.ac49fb52.css",
+    "static/js/main.d6daa425.js"
   ]
 }
