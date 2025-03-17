@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./QuizForm.css";
+import rvchg from "./img/28374.jpg";
 
 const QuizForm = () => {
   const [formData, setFormData] = useState({
@@ -66,7 +67,7 @@ const QuizForm = () => {
 
       if (data.success) {
         setResult("Quiz submitted successfully!");
-        
+
         // Reset all form fields, including selected radio options
         setFormData({
           demandForecasting: "",
@@ -90,91 +91,98 @@ const QuizForm = () => {
 
   return (
     <div className="quiz-container">
+      <br /><br />
       <h2>Revenue Challenge Quiz</h2>
-      <form onSubmit={onSubmit}>
-        <div className="question">
-          <p><strong>1. How do you forecast your demand?</strong></p>
-          <label>
-            <input type="radio" name="demandForecasting" value="Analyze historical data" onChange={handleChange} required /> 
-            A) Analyze historical data
-          </label>
-          <label>
-            <input type="radio" name="demandForecasting" value="Rely on intuition" onChange={handleChange} required /> 
-            B) Rely on intuition
-          </label>
-          <label>
-            <input type="radio" name="demandForecasting" value="React to market changes" onChange={handleChange} required /> 
-            C) React to market changes
-          </label>
+      <div className="quiz-content-wrapper">
+        <div className="quiz-image-section">
+          <img src={rvchg} alt="Revenue challenge" className="quiz-image" />
         </div>
+        <div className="quiz-form-section">
+          <form onSubmit={onSubmit}>
+            <div className="question">
+              <p><strong>1. How do you forecast your demand?</strong></p>
+              <label>
+                <input type="radio" name="demandForecasting" value="Analyze historical data" onChange={handleChange} required />
+                A) Analyze historical data
+              </label>
+              <label>
+                <input type="radio" name="demandForecasting" value="Rely on intuition" onChange={handleChange} required />
+                B) Rely on intuition
+              </label>
+              <label>
+                <input type="radio" name="demandForecasting" value="React to market changes" onChange={handleChange} required />
+                C) React to market changes
+              </label>
+            </div>
 
-        <div className="question">
-          <p><strong>2. What is your approach to pricing during high demand?</strong></p>
-          <label>
-            <input type="radio" name="pricingStrategy" value="Dynamic pricing" onChange={handleChange} required /> 
-            A) Dynamic pricing
-          </label>
-          <label>
-            <input type="radio" name="pricingStrategy" value="Fixed rates" onChange={handleChange} required /> 
-            B) Fixed rates
-          </label>
-          <label>
-            <input type="radio" name="pricingStrategy" value="Offer discounts" onChange={handleChange} required /> 
-            C) Offer discounts
-          </label>
+            <div className="question">
+              <p><strong>2. What is your approach to pricing during high demand?</strong></p>
+              <label>
+                <input type="radio" name="pricingStrategy" value="Dynamic pricing" onChange={handleChange} required />
+                A) Dynamic pricing
+              </label>
+              <label>
+                <input type="radio" name="pricingStrategy" value="Fixed rates" onChange={handleChange} required />
+                B) Fixed rates
+              </label>
+              <label>
+                <input type="radio" name="pricingStrategy" value="Offer discounts" onChange={handleChange} required />
+                C) Offer discounts
+              </label>
+            </div>
+
+            <div className="question">
+              <p><strong>3. How do you optimize your distribution strategy?</strong></p>
+              <label>
+                <input type="radio" name="distributionStrategy" value="Balance direct bookings & OTAs" onChange={handleChange} required />
+                A) Balance direct bookings & OTAs
+              </label>
+              <label>
+                <input type="radio" name="distributionStrategy" value="Focus only on OTAs" onChange={handleChange} required />
+                B) Focus only on OTAs
+              </label>
+              <label>
+                <input type="radio" name="distributionStrategy" value="No clear strategy" onChange={handleChange} required />
+                C) No clear strategy
+              </label>
+            </div>
+
+            <div className="question">
+              <p><strong>4. How do you evaluate the success of a promotion?</strong></p>
+              <label>
+                <input type="radio" name="promotionEvaluation" value="ROI & guest feedback" onChange={handleChange} required />
+                A) ROI & guest feedback
+              </label>
+              <label>
+                <input type="radio" name="promotionEvaluation" value="Number of guests used it" onChange={handleChange} required />
+                B) Number of guests used it
+              </label>
+              <label>
+                <input type="radio" name="promotionEvaluation" value="No systematic analysis" onChange={handleChange} required />
+                C) No systematic analysis
+              </label>
+            </div>
+
+            <div className="email-input">
+              <p><strong>Enter your Email:</strong></p>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={(e) => {
+                  handleChange(e);
+                  validateEmail(e.target.value);
+                }}
+                required
+              />
+              {!emailValid && <p className="error-text">Please enter a valid email.</p>}
+            </div>
+
+            <button type="submit" className="submit-btn">Submit your Quiz</button>
+          </form>
+          <div className="submission-result">{result}</div>
         </div>
-
-        <div className="question">
-          <p><strong>3. How do you optimize your distribution strategy?</strong></p>
-          <label>
-            <input type="radio" name="distributionStrategy" value="Balance direct bookings & OTAs" onChange={handleChange} required /> 
-            A) Balance direct bookings & OTAs
-          </label>
-          <label>
-            <input type="radio" name="distributionStrategy" value="Focus only on OTAs" onChange={handleChange} required /> 
-            B) Focus only on OTAs
-          </label>
-          <label>
-            <input type="radio" name="distributionStrategy" value="No clear strategy" onChange={handleChange} required /> 
-            C) No clear strategy
-          </label>
-        </div>
-
-        <div className="question">
-          <p><strong>4. How do you evaluate the success of a promotion?</strong></p>
-          <label>
-            <input type="radio" name="promotionEvaluation" value="ROI & guest feedback" onChange={handleChange} required /> 
-            A) ROI & guest feedback
-          </label>
-          <label>
-            <input type="radio" name="promotionEvaluation" value="Number of guests used it" onChange={handleChange} required /> 
-            B) Number of guests used it
-          </label>
-          <label>
-            <input type="radio" name="promotionEvaluation" value="No systematic analysis" onChange={handleChange} required /> 
-            C) No systematic analysis
-          </label>
-        </div>
-
-        <div className="email-input">
-          <p><strong>Enter your Email:</strong></p>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={(e) => {
-              handleChange(e);
-              validateEmail(e.target.value);
-            }}
-            required
-          />
-          {!emailValid && <p className="error-text">Please enter a valid email.</p>}
-        </div>
-
-        <button type="submit" className="submit-btn">Submit your Quiz</button>
-      </form>
-
-      <div className="submission-result">{result}</div>
+      </div>
     </div>
   );
 };

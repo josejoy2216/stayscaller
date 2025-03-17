@@ -76,10 +76,10 @@ const Navbar = () => {
             </a>
             <div className={`dropdown-content ${openDropdown === "services" ? "show" : ""}`}>
             <Link to="/service#revenue-management">Revenue Management</Link>
-            <Link to="/service#social-media-marketing">Social Media Marketing</Link>
-            <Link to="/service#reputation-management">Reputation Management</Link>
             <Link to="/service#ppc">Increase Direct Bookings</Link>
             <Link to="/service#PriceInsight">Price Insight</Link>
+            <Link to="/service#reputation-management">Reputation Management</Link>
+            <Link to="/service#social-media-marketing">Social Media Marketing</Link>
             <Link to="/service#content-and-photography">Content & Photography</Link>
 
             </div>
