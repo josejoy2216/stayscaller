@@ -90,7 +90,7 @@ const QuizForm = () => {
   };
 
   return (
-    <div className="quiz-container">
+    <div id="quiz" className="quiz-container">
       <br /><br />
       <h2>Revenue Challenge Quiz </h2>
 
@@ -182,8 +182,10 @@ const QuizForm = () => {
             </div>
 
             <button type="submit" className="submit-btn">Submit your Quiz</button>
+
+            <div className="submission-result">{result}</div>
           </form>
-          <div className="submission-result">{result}</div>
+          
         </div>
 
         
