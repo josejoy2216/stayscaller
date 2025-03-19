@@ -92,11 +92,14 @@ const QuizForm = () => {
   return (
     <div className="quiz-container">
       <br /><br />
-      <h2>Revenue Challenge Quiz</h2>
-      <div className="quiz-content-wrapper">
+      <h2>Revenue Challenge Quiz </h2>
+
+      <div className="quiz-content-wrapper m-3">
+
         <div className="quiz-image-section">
           <img src={rvchg} alt="Revenue challenge" className="quiz-image" />
         </div>
+        
         <div className="quiz-form-section">
           <form onSubmit={onSubmit}>
             <div className="question">
@@ -182,6 +185,8 @@ const QuizForm = () => {
           </form>
           <div className="submission-result">{result}</div>
         </div>
+
+        
       </div>
     </div>
   );
