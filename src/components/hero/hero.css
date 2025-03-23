@@ -32,7 +32,7 @@
     }
 }
 
-/* Hero Image */
+/* Hero Left (Video Section) */
 .hero-left {
     display: flex;
     justify-content: center;
@@ -40,10 +40,33 @@
     width: 100%;
 }
 
-.hero-image {
-    max-width: 100%;
-    height: auto;
+.hero-video {
+    width: 90%;
+    height: 180px; /* Default size for mobile */
+    border-radius: 8px;
 }
+
+@media (min-width: 768px) {
+    .hero-video {
+        width: 500px;
+        height: 280px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-video {
+        width: 500px;
+        height: 300px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .hero-video {
+        width: 500px;
+        height: 300px;
+    }
+}
+
 
 /* Right Section */
 .hero-right {

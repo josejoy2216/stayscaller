@@ -57,21 +57,27 @@ const FlipCard = () => {
   ];
 
   const handleNavigation = (path) => {
-    navigate(path.split("#")[0]); // Navigate to the main page first
-
+    navigate(path); // Navigate directly to the full path, including the hash
+  
     setTimeout(() => {
       const hash = path.split("#")[1];
       if (hash) {
         const element = document.getElementById(hash);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top if no hash
       }
-    }, 300); // Small delay to ensure navigation completes before scrolling
+    }, 300); // Delay to ensure navigation completes
   };
+  
+  
+  
 
   return (
     <div className="services-container">
+      <h2 className="title">What we do Best</h2>
       <div className="container">
         <div className="row"> {/* Bootstrap row to ensure proper layout */}
           {services.map((service, index) => (

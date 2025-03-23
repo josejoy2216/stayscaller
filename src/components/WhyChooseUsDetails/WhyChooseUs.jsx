@@ -207,17 +207,23 @@ const WhyChooseUs = () => {
   
 
   useEffect(() => {
+    // Scroll to the top on initial render or page navigation
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  
     if (location.hash) {
       const sectionId = location.hash.replace("#", "");
       const foundItem = menuItems.find((item) => item.id === sectionId);
       if (foundItem) {
         setSelectedItem(foundItem);
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300); // Delay ensures navigation completes first
       }
     } else {
       setSelectedItem(menuItems[0]);
     }
-  }, [location]);
+  }, [location]); // Runs on location change
+  
 
   return (
     <div className="why-choose-us-container mt-5">

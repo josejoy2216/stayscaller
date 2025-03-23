@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaBars, FaTimes, FaAngleDown, FaHotel, FaChartLine, FaChevronDown  , FaClipboardList, FaBookOpen, FaHandshake, FaPhone } from 'react-icons/fa';
+// import { FaBars, FaTimes, FaAngleDown, FaHotel, FaChartLine, FaChevronDown  , FaClipboardList, FaBookOpen, FaHandshake, FaPhone } from 'react-icons/fa';
+import { FaBars, FaTimes, FaAngleDown,  FaChartLine,  } from 'react-icons/fa';
 import './navbar.css';
 import navlogo from "../assets/icons/logoicon.png";
 

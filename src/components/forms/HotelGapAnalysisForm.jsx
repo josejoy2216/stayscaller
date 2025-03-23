@@ -128,7 +128,7 @@ const ProfileStep = ({ formData, setFormData, onNext }) => {
         <AnimatedInput 
           icon={Hotel} 
           type="text" 
-          placeholder="Hotel Name" 
+          placeholder="Hotel Name*" 
           value={formData.hotelName} 
           onChange={(e) => setFormData({ ...formData, hotelName: e.target.value })} 
           error={errors.hotelName} 
@@ -136,34 +136,49 @@ const ProfileStep = ({ formData, setFormData, onNext }) => {
         <AnimatedInput 
           icon={Users} 
           type="text" 
-          placeholder="Your Name" 
+          placeholder="Your Name*" 
           value={formData.userName} 
-          onChange={(e) => setFormData({ ...formData, userName: e.target.value })} 
+          onChange={(e) => {
+            const inputValue = e.target.value;
+            if (/^[A-Za-z\s]*$/.test(inputValue)) {  // Allows only letters and spaces
+              setFormData({ ...formData, userName: inputValue });
+            }
+          }} 
           error={errors.userName} 
         />
-        <AnimatedInput 
-          icon={Phone} 
-          type="tel" 
-          placeholder="Mobile Number" 
-          value={formData.mobile} 
-          onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} 
-          error={errors.mobile} 
+        <AnimatedInput
+          icon={Phone}
+          type="tel"
+          placeholder="Mobile Number*"
+          value={formData.mobile}
+          onChange={(e) => {
+            const numericValue = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+            if (numericValue.length <= 10) { // Limit to 10 digits
+              setFormData({ ...formData, mobile: numericValue });
+            }
+          }}
+          maxLength={10} // Ensures users can't type beyond 10 digits
+          error={errors.mobile}
         />
         <AnimatedInput 
           icon={Mail} 
           type="email" 
-          placeholder="Email Address" 
+          placeholder="Email Address*" 
           value={formData.email} 
           onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
           error={errors.email} 
         />
-        <AnimatedInput 
-          icon={Building} 
-          type="number" 
-          placeholder="Number of Rooms" 
-          value={formData.rooms} 
-          onChange={(e) => setFormData({ ...formData, rooms: e.target.value })} 
-          error={errors.rooms} 
+        <AnimatedInput
+          icon={Building}
+          type="number"
+          placeholder="Number of Rooms*"
+          value={formData.rooms}
+          onChange={(e) => {
+            const value = parseInt(e.target.value, 10); // Convert input to an integer
+            setFormData({ ...formData, rooms: isNaN(value) || value < 0 ? 0 : value });
+          }}
+          min="0" // Prevents negative numbers with UI controls (arrows)
+          error={errors.rooms}
         />
       </div>
       <button onClick={() => validate() && onNext()} className="btn btn-primary">
@@ -206,7 +221,7 @@ const CompetitorStep = ({ formData, setFormData, onNext, onBack }) => {
         <AnimatedInput
           icon={MapPin}
           type="text"
-          placeholder="Location PIN"
+          placeholder="Location PIN*"
           value={formData.location}
           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
           error={errors.location}
@@ -216,7 +231,7 @@ const CompetitorStep = ({ formData, setFormData, onNext, onBack }) => {
             key={num}
             icon={Building}
             type="text"
-            placeholder={`Competitor ${num} Name`}
+            placeholder={`Competitor ${num} Name${num === 1 ? " (Required)" : " (Optional)"}`}
             value={formData[`competitor${num}`]}
             onChange={(e) => setFormData({ ...formData, [`competitor${num}`]: e.target.value })}
             error={num === 1 ? errors.competitor1 : null}

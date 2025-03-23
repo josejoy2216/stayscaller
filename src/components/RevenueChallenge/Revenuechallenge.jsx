@@ -92,7 +92,7 @@ const QuizForm = () => {
   return (
     <div id="quiz" className="quiz-container">
       <br /><br />
-      <h2>Revenue Challenge Quiz </h2>
+      <h2>Are You a Revenue Mastermind?</h2>
 
       <div className="quiz-content-wrapper m-3">
 

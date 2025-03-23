@@ -26,6 +26,7 @@ const TestimonialCards = () => {
       margin: '0 auto',
       padding: '20px'
     }}>
+      <h2 className="title">Trusted by the Best in Hospitality</h2>
       {/* Horizontal scrolling container for all screen sizes */}
       <div className="testimonial-container" style={{
         display: 'flex',
