@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./WhyChooseUs.css";
+import FAQ from "./FAQ";
 
 import ContentPhotography from "../assets/img/1.jpg";
 import PPC from "../assets/img/DirectBooking.jpg";
@@ -226,6 +227,7 @@ const WhyChooseUs = () => {
   
 
   return (
+    
     <div className="why-choose-us-container mt-5">
       <div className="content-wrapper">
         <div className="split-layout">
@@ -247,6 +249,16 @@ const WhyChooseUs = () => {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <div className="faq-section-wrapper">
+        <FAQ />
+      </div>
+
+
+
+
+
     </div>
   );
 };

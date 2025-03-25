@@ -42,8 +42,10 @@
 
 .hero-video {
     width: 90%;
-    height: 180px; /* Default size for mobile */
-    border-radius: 8px;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px; /* Added border-radius */
+    object-fit: cover; /* Ensures video maintains aspect ratio */
 }
 
 @media (min-width: 768px) {
@@ -66,7 +68,6 @@
         height: 300px;
     }
 }
-
 
 /* Right Section */
 .hero-right {

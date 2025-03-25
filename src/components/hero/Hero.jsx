@@ -1,31 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./hero.css";
 import { useNavigate } from "react-router-dom";
-import heroGif from "../assets/img/hero.gif";
+import videoFile from "../hero/Transform_Your_Hotel_Revenue.mp4";
 
 const ComponentName = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Ensure YouTube API is loaded
-    const script = document.createElement("script");
-    script.src = "https://www.youtube.com/iframe_api";
-    script.async = true;
-    document.body.appendChild(script);
-
-    window.onYouTubeIframeAPIReady = function () {
-      new window.YT.Player("hero-video", {
-        events: {
-          onStateChange: function (event) {
-            if (event.data === window.YT.PlayerState.ENDED) {
-              event.target.seekTo(0); // Restart video
-              event.target.playVideo();
-            }
-          },
-        },
-      });
-    };
-  }, []);
 
   return (
     <section id="about" className="hero-section">
@@ -33,15 +12,16 @@ const ComponentName = () => {
         <div className="hero-content">
           {/* Left Section */}
           <div className="hero-left">
-            <iframe
+            <video
               id="hero-video"
               className="hero-video"
-              src="https://www.youtube.com/embed/vzzttnJEAJo?autoplay=1&mute=1&enablejsapi=1"
-              title="YouTube video"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            ></iframe>
+              src={videoFile} // Ensure the file is inside the public folder
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+            ></video>
           </div>
 
           {/* Right Section */}
