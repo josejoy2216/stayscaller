@@ -57,14 +57,14 @@
 
 @media (min-width: 1024px) {
     .hero-video {
-        width: 500px;
+        width: 550px;
         height: 300px;
     }
 }
 
 @media (min-width: 1440px) {
     .hero-video {
-        width: 500px;
+        width: 550px;
         height: 300px;
     }
 }
