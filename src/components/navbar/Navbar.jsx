@@ -96,6 +96,7 @@ const Navbar = () => {
               <a href="#about" onClick={(e) => { e.preventDefault(); navigateToSection("about"); }}>About Stay Scaler</a>
               <a href="#what-we-do" onClick={(e) => { e.preventDefault(); navigateToSection("what-we-do"); }}>What do we do?</a>
               <a href="#why-choose" onClick={(e) => { e.preventDefault(); navigateToSection("why-choose"); }}>Why Choose us?</a>
+              <a href="#services-container" onClick={(e) => { e.preventDefault(); navigateToSection("services-container"); }}>What we do best?</a>
               {/* <a href="#contact">Contact <FaPhone /> </a> */}
               <a href="#contact" onClick={(e) => { e.preventDefault(); navigateToSection("contact"); }}>Contact </a>
             </div>

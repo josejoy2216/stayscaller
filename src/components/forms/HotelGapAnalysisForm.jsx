@@ -6,145 +6,143 @@ import './HotelGapAnalysisForm.css';
 const ProgressSteps = ({ currentStep }) => {
   return (
     <>
-    <br />
-    <div className="progress-steps">
-      {/* Background Lines */}
-      <div className="progress-line">
-        {/* First connection line */}
-        <div className="line">
-          <div 
-            className="line-fill"
-            style={{ width: currentStep > 1 ? '100%' : '0%' }}
-          />
+      <br />
+      <div className="progress-steps">
+        {/* Background Lines */}
+        <div className="progress-line">
+          {/* First connection line */}
+          <div className="line">
+            <div
+              className="line-fill"
+              style={{ width: currentStep > 1 ? '100%' : '0%' }}
+            />
+          </div>
+          {/* Second connection line */}
+          <div className="line">
+            <div
+              className="line-fill"
+              style={{ width: currentStep > 2 ? '100%' : '0%' }}
+            />
+          </div>
         </div>
-        {/* Second connection line */}
-        <div className="line">
-          <div 
-            className="line-fill"
-            style={{ width: currentStep > 2 ? '100%' : '0%' }}
-          />
-        </div>
-      </div>
 
-      {/* Step Circles */}
-      {[
-        { num: 1, label: 'Profile', icon: Users },
-        { num: 2, label: 'Competitors', icon: Building },
-        { num: 3, label: 'Social', icon: Globe }
-      ].map(({ num, label, icon: Icon }) => (
-        <div key={num} className="step-circle">
-          <div
-            className={`circle ${
-              num === currentStep ? 'active' : 
-              num < currentStep ? 'completed' : 'inactive'
-            }`}
-          >
-            {num < currentStep ? (
-              <Check className="w-8 h-8 text-white" />
-            ) : (
-              <Icon className={`w-8 h-8 ${num === currentStep ? 'text-white' : 'text-gray-500'}`} />
-            )}
+        {/* Step Circles */}
+        {[
+          { num: 1, label: 'Profile', icon: Users },
+          { num: 2, label: 'Competitors', icon: Building },
+          { num: 3, label: 'Social', icon: Globe }
+        ].map(({ num, label, icon: Icon }) => (
+          <div key={num} className="step-circle">
+            <div
+              className={`circle ${num === currentStep ? 'active' :
+                  num < currentStep ? 'completed' : 'inactive'
+                }`}
+            >
+              {num < currentStep ? (
+                <Check className="w-8 h-8 text-white" />
+              ) : (
+                <Icon className={`w-8 h-8 ${num === currentStep ? 'text-white' : 'text-gray-500'}`} />
+              )}
+            </div>
+            <div
+              className={`step-label ${num === currentStep ? 'active' :
+                  num < currentStep ? 'completed' : 'inactive'
+                }`}
+            >
+              {label}
+            </div>
           </div>
-          <div 
-            className={`step-label ${
-              num === currentStep ? 'active' : 
-              num < currentStep ? 'completed' : 'inactive'
-            }`}
-          >
-            {label}
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </>
   );
 };
 
 const AnimatedInput = ({ icon: Icon, error, ...props }) => {
-    const [isFocused, setIsFocused] = useState(false);
-  
-    return (
-      <div className="input-wrapper">
-        <div className={`input-group ${isFocused ? "focused" : ""} ${error ? "error" : ""}`}>
-          <Icon className="input-icon" style={{ width: "1.125rem", height: "1.125rem", minWidth: "1.125rem" }} />
-          <input
-            {...props}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            style={{
-              flex: 1, // Ensures input takes up the remaining space
-              border: "none",
-              outline: "none",
-              background: "transparent",
-              fontSize: "0.875rem",
-              color: "#1f2937",
-              padding: "0.25rem",
-            }}
-          />
-        </div>
-        {error && <div className="error-message">{error}</div>}
+  const [isFocused, setIsFocused] = useState(false);
+
+  return (
+    <div className="input-wrapper">
+      <div className={`input-group ${isFocused ? "focused" : ""} ${error ? "error" : ""}`}>
+        <Icon className="input-icon" style={{ width: "1.125rem", height: "1.125rem", minWidth: "1.125rem" }} />
+        <input
+          {...props}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          style={{
+            flex: 1, // Ensures input takes up the remaining space
+            border: "none",
+            outline: "none",
+            background: "transparent",
+            fontSize: "0.875rem",
+            color: "#1f2937",
+            padding: "0.25rem",
+          }}
+        />
       </div>
-    );
+      {error && <div className="error-message">{error}</div>}
+    </div>
+  );
 };
 
 // Step 1: Profile Component
 const ProfileStep = ({ formData, setFormData, onNext }) => {
   const [errors, setErrors] = useState({});
-  
+
   const validate = () => {
     let newErrors = {};
     if (!formData.hotelName.trim()) newErrors.hotelName = "Hotel Name is required";
     if (!formData.userName.trim()) newErrors.userName = "Your Name is required";
-    
+
     // Mobile validation
     if (!formData.mobile.trim()) {
       newErrors.mobile = "Mobile Number is required";
     } else if (!/^\d{10,15}$/.test(formData.mobile.replace(/[^0-9]/g, ''))) {
       newErrors.mobile = "Please enter a valid mobile number";
     }
-    
+
     // Email validation
     if (!formData.email.trim()) {
       newErrors.email = "Email Address is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
-    
+
     // Room validation
     if (!formData.rooms) {
       newErrors.rooms = "Number of Rooms is required";
     } else if (isNaN(formData.rooms) || parseInt(formData.rooms) <= 0) {
       newErrors.rooms = "Please enter a valid number of rooms";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  
+
   return (
     <div className="form-container">
       <h2 className="heading">Profile Information</h2>
       <div className="space-y-4">
-        <AnimatedInput 
-          icon={Hotel} 
-          type="text" 
-          placeholder="Hotel Name*" 
-          value={formData.hotelName} 
-          onChange={(e) => setFormData({ ...formData, hotelName: e.target.value })} 
-          error={errors.hotelName} 
+        <AnimatedInput
+          icon={Hotel}
+          type="text"
+          placeholder="Hotel Name*"
+          value={formData.hotelName}
+          onChange={(e) => setFormData({ ...formData, hotelName: e.target.value })}
+          error={errors.hotelName}
         />
-        <AnimatedInput 
-          icon={Users} 
-          type="text" 
-          placeholder="Your Name*" 
-          value={formData.userName} 
+        <AnimatedInput
+          icon={Users}
+          type="text"
+          placeholder="Your Name*"
+          value={formData.userName}
           onChange={(e) => {
             const inputValue = e.target.value;
             if (/^[A-Za-z\s]*$/.test(inputValue)) {  // Allows only letters and spaces
               setFormData({ ...formData, userName: inputValue });
             }
-          }} 
-          error={errors.userName} 
+          }}
+          error={errors.userName}
         />
         <AnimatedInput
           icon={Phone}
@@ -160,13 +158,13 @@ const ProfileStep = ({ formData, setFormData, onNext }) => {
           maxLength={10} // Ensures users can't type beyond 10 digits
           error={errors.mobile}
         />
-        <AnimatedInput 
-          icon={Mail} 
-          type="email" 
-          placeholder="Email Address*" 
-          value={formData.email} 
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
-          error={errors.email} 
+        <AnimatedInput
+          icon={Mail}
+          type="email"
+          placeholder="Email Address*"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          error={errors.email}
         />
         <AnimatedInput
           icon={Building}
@@ -192,28 +190,28 @@ const ProfileStep = ({ formData, setFormData, onNext }) => {
 // Step 2: Competitor Component
 const CompetitorStep = ({ formData, setFormData, onNext, onBack }) => {
   const [errors, setErrors] = useState({});
-  
+
   const validate = () => {
     let newErrors = {};
-    
+
     if (!formData.location.trim()) {
       newErrors.location = "Location PIN is required";
     } else if (!/^\d{5,6}$/.test(formData.location.replace(/[^0-9]/g, ''))) {
       newErrors.location = "Please enter a valid PIN code";
     }
-    
+
     // At least one competitor is required
-    if (!formData.competitor1.trim() && 
-        !formData.competitor2.trim() && 
-        !formData.competitor3.trim() && 
-        !formData.competitor4.trim()) {
+    if (!formData.competitor1.trim() &&
+      !formData.competitor2.trim() &&
+      !formData.competitor3.trim() &&
+      !formData.competitor4.trim()) {
       newErrors.competitor1 = "At least one competitor must be specified";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  
+
   return (
     <div className="form-container">
       <h2 className="heading">Competitor Information</h2>
@@ -223,7 +221,12 @@ const CompetitorStep = ({ formData, setFormData, onNext, onBack }) => {
           type="text"
           placeholder="Location PIN*"
           value={formData.location}
-          onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+          onChange={(e) => {
+            const value = e.target.value;
+            if (/^\d{0,5}$/.test(value)) {
+              setFormData({ ...formData, location: value });
+            }
+          }}
           error={errors.location}
         />
         {[1, 2, 3, 4].map((num) => (
@@ -255,7 +258,7 @@ const CompetitorStep = ({ formData, setFormData, onNext, onBack }) => {
 const SocialMediaStep = ({ formData, setFormData, onSubmit, onBack }) => {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
-  
+
   const validateWebUrl = (url) => {
     if (!url) return true; // Optional field
     try {
@@ -265,37 +268,37 @@ const SocialMediaStep = ({ formData, setFormData, onSubmit, onBack }) => {
       return false;
     }
   };
-  
+
   const validateSocialMedia = (handle) => {
     if (!handle) return true; // Optional field
     return /^[A-Za-z0-9._]+$/.test(handle);
   };
-  
+
   const validate = () => {
     let newErrors = {};
-    
+
     // Website validation (optional)
     if (formData.website && !validateWebUrl(formData.website)) {
       newErrors.website = "Please enter a valid website URL";
     }
-    
+
     // Instagram handle validation (optional)
     if (formData.instagram && !validateSocialMedia(formData.instagram)) {
       newErrors.instagram = "Please enter a valid Instagram handle";
     }
-    
+
     // Facebook handle validation (optional)
     if (formData.facebook && !validateSocialMedia(formData.facebook)) {
       newErrors.facebook = "Please enter a valid Facebook handle";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  
+
   const handleSubmitWithValidation = async () => {
     if (!validate()) return;
-    
+
     setSubmitting(true);
     try {
       await onSubmit();
@@ -306,7 +309,7 @@ const SocialMediaStep = ({ formData, setFormData, onSubmit, onBack }) => {
       setSubmitting(false);
     }
   };
-  
+
   return (
     <div className="form-container">
       <h2 className="heading">Social Media Information</h2>
@@ -340,8 +343,8 @@ const SocialMediaStep = ({ formData, setFormData, onSubmit, onBack }) => {
         <button onClick={onBack} className="btn btn-secondary" disabled={submitting}>
           Back
         </button>
-        <button 
-          onClick={handleSubmitWithValidation} 
+        <button
+          onClick={handleSubmitWithValidation}
           className="btn btn-success"
           disabled={submitting}
         >
@@ -383,7 +386,7 @@ const HotelGapAnalysisForm = () => {
   const handleSubmit = async () => {
     try {
       const formDataToSend = new FormData();
-      
+
       // Append each field manually to match Web3Forms format
       formDataToSend.append("access_key", "9014c775-b760-49d7-bfe2-4d9bfe13e9a0"); // Use your Web3Forms access key
       formDataToSend.append("hotelName", formData.hotelName);
@@ -399,18 +402,18 @@ const HotelGapAnalysisForm = () => {
       formDataToSend.append("instagram", formData.instagram);
       formDataToSend.append("facebook", formData.facebook);
       formDataToSend.append("website", formData.website);
-  
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formDataToSend,
       });
-  
+
       const data = await response.json();
-  
+
       if (data.success) {
         setFormSubmitted(true);
         alert("Thank you! Your data has been sent via email.");
-  
+
         setFormData({
           hotelName: "",
           userName: "",
@@ -426,7 +429,7 @@ const HotelGapAnalysisForm = () => {
           facebook: "",
           website: "",
         });
-  
+
         setCurrentStep(1); // Reset to first step after successful submission
       } else {
         alert("Error! " + data.message);
@@ -436,7 +439,7 @@ const HotelGapAnalysisForm = () => {
       alert("Failed to submit. Please check your internet connection and try again.");
     }
   };
-  
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br">
@@ -444,9 +447,9 @@ const HotelGapAnalysisForm = () => {
         <div className="card">
           <div className="card-content">
             <ProgressSteps currentStep={currentStep} />
-            
+
             {formSubmitted ? (
-               <div style={{
+              <div style={{
                 textAlign: 'center',
                 maxWidth: '400px',
                 margin: '30px auto',
@@ -461,20 +464,20 @@ const HotelGapAnalysisForm = () => {
                   color: '#22c55e',
                   margin: '0 auto 20px'
                 }} />
-                
+
                 <h2 style={{
                   fontSize: '24px',
                   fontWeight: 'bold',
                   marginBottom: '15px'
                 }}>Submission Successful!</h2>
-                
+
                 <p style={{
                   color: '#555',
                   marginBottom: '25px'
                 }}>Thank you for your information. We'll be in touch soon.</p>
-                
-                <button 
-                  onClick={() => setFormSubmitted(false)} 
+
+                <button
+                  onClick={() => setFormSubmitted(false)}
                   style={{
                     backgroundColor: '#3b82f6',
                     color: 'white',
