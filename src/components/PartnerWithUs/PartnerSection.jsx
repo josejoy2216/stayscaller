@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./PartnerSection.css"; 
+import React from "react";
+import "./PartnerSection.css";
 import analytics from "./assets/icons/analytics.png";
 import dashboard from "./assets/icons/dashboard.png";
 import money from "./assets/icons/money.png";
@@ -13,7 +13,7 @@ const PartnerSection = () => {
     { icon: dashboard, text: "Detailed Performance Report" },
     { icon: money, text: "Maximize RevPAR" },
     { icon: radar, text: "Competition Analysis" },
-    { icon: rest, text: " Occupancy Growth" },
+    { icon: rest, text: "Occupancy Growth" },
     { icon: trophy, text: "Proven ROI" },
   ];
 
@@ -25,8 +25,12 @@ const PartnerSection = () => {
         {features.map((item, index) => (
           <div key={index} className="icon-box">
             <div className="icon-circle">
-              <img src={item.icon} alt={item.text} className="icon-img" />
-              <span className="icon-text">{item.text}</span>
+              <div className="icon-front">
+                <img src={item.icon} alt={item.text} className="icon-img" />
+              </div>
+              <div className="icon-back">
+                <span className="icon-text">{item.text}</span>
+              </div>
             </div>
           </div>
         ))}

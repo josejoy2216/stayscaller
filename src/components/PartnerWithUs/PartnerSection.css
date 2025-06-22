@@ -21,149 +21,58 @@
 }
 
 .icon-box {
-  background: rgb(238, 234, 234);
-  border-radius: 50%;
   width: 120px;
   height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
-  position: relative;
+  perspective: 1000px;
 }
 
 .icon-circle {
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  border-radius: 50%;
+  background: rgb(238, 234, 234);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fefefebb;
-  border-radius: 50%;
-  position: relative;
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Icon Image */
-.icon-img {
-  width: 50px;
-  height: auto;
-  transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
-}
-
-/* Text */
-.icon-text {
-  position: absolute;
-  font-size: 14px;
-  font-weight: bold;
-  color: black;
-  text-align: center;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* Hover Effects */
-.icon-box:hover {
-  transform: scale(1.1);
 }
 
 .icon-box:hover .icon-circle {
   transform: rotateY(180deg);
 }
 
-.icon-box:hover .icon-img {
-  opacity: 0;
-  transform: rotateY(180deg);
-}
-
-.icon-box:hover .icon-text {
-  opacity: 1;
-}
-.partner-section {
-  background: white;
-  padding: 40px 0;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 30px;
-}
-
-.icon-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding: 0 20px;
-}
-
-.icon-box {
-  background: rgb(238, 234, 234);
+.icon-front,
+.icon-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
-  position: relative;
 }
 
-.icon-circle {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.icon-front {
   background-color: #fefefebb;
-  border-radius: 50%;
-  position: relative;
-  transition: transform 0.5s ease-in-out;
-  backface-visibility: hidden; /* Prevents flipping */
 }
 
-/* Icon Image */
 .icon-img {
   width: 50px;
   height: auto;
-  transition: opacity 0.3s ease-in-out;
-  position: absolute;
-  backface-visibility: hidden; /* Prevents text flip */
 }
 
-/* Text */
+.icon-back {
+  background-color: #fefefebb;
+  transform: rotateY(180deg);
+  padding: 10px;
+}
+
 .icon-text {
-  position: absolute;
   font-size: 14px;
   font-weight: bold;
   color: black;
-  opacity: 0;
-  transform: rotateY(180deg); /* Counter-rotates the text */
-  transition: opacity 0.3s ease-in-out;
   text-align: center;
-}
-
-/* Hover Effects */
-.icon-box:hover {
-  transform: scale(1.1);
-}
-
-/* .icon-box:hover .icon-circle {
-  transform: rotateY(180deg);
-} */
-
-.icon-box:hover .icon-img {
-  opacity: 0;
-}
-
-.icon-box:hover .icon-text {
-  opacity: 1;
-  transform: rotateY(180deg); /* Flipping it back to be readable */
 }
