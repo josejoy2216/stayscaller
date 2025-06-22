@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/stayscaller/static/css/main.7eea2a9b.css",
-    "main.js": "/stayscaller/static/js/main.e3345e64.js",
+    "main.css": "/stayscaller/static/css/main.dbe03092.css",
+    "main.js": "/stayscaller/static/js/main.abdad4e2.js",
     "static/js/488.4f0be716.chunk.js": "/stayscaller/static/js/488.4f0be716.chunk.js",
     "static/media/Transform_Your_Hotel_Revenue.mp4": "/stayscaller/static/media/Transform_Your_Hotel_Revenue.d9c21709e6508baf46ee.mp4",
     "static/media/28374.jpg": "/stayscaller/static/media/28374.e7e866695e223b82bb8b.jpg",
@@ -29,12 +29,12 @@
     "static/media/rest.png": "/stayscaller/static/media/rest.d1850320dfc3a9a3872f.png",
     "static/media/dashboard.png": "/stayscaller/static/media/dashboard.92ad6c7814dad472ced5.png",
     "index.html": "/stayscaller/index.html",
-    "main.7eea2a9b.css.map": "/stayscaller/static/css/main.7eea2a9b.css.map",
-    "main.e3345e64.js.map": "/stayscaller/static/js/main.e3345e64.js.map",
+    "main.dbe03092.css.map": "/stayscaller/static/css/main.dbe03092.css.map",
+    "main.abdad4e2.js.map": "/stayscaller/static/js/main.abdad4e2.js.map",
     "488.4f0be716.chunk.js.map": "/stayscaller/static/js/488.4f0be716.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7eea2a9b.css",
-    "static/js/main.e3345e64.js"
+    "static/css/main.dbe03092.css",
+    "static/js/main.abdad4e2.js"
   ]
 }
